@@ -18,12 +18,24 @@ namespace HomeAssignment
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            var task = DoLogin();
+        
 
+
+       
+
+       
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            lblResults.Text = "";
         }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            //var task = DoLogin();
+
+            var task = Task.Factory.StartNew(() => DoLogin());
+        }
 
         public void ChangeResultText(string strMsg, Color color)
         {
@@ -36,8 +48,8 @@ namespace HomeAssignment
 
         public void MakeFormEnable(bool enableForm)
         {
-            this.BeginInvoke((Action)(() => {
-                this.Enabled = enableForm;
+            panelMainContainer.BeginInvoke((Action)(() => {
+                panelMainContainer.Enabled = enableForm;
             }));
 
         }
@@ -47,7 +59,7 @@ namespace HomeAssignment
         public async Task DoLogin()
         {
             MakeFormEnable(false);
-            ChangeResultText("", Color.Black);
+            ChangeResultText("Please wait while logging you in...", Color.Black);
 
             if (txtUserName.Text == "")
             {
@@ -72,16 +84,19 @@ namespace HomeAssignment
                     if (user != null)
                     {
 
-                        txtPassword.Text = "Got User";
+                        ChangeResultText("Got User", Color.Green);
+                        
                     }
                     else
                     {
-                        txtPassword.Text = "Not Found";
+                        ChangeResultText("Not Found", Color.Red);
                     }
 
 
 
                 }
+
+                MakeFormEnable(true);
             }
             catch (Exception ex)
             {
@@ -90,7 +105,5 @@ namespace HomeAssignment
             }
 
         }
-
-
     }
 }
