@@ -14,5 +14,10 @@ namespace HomeAssignment
         {
             InitializeComponent();
         }
+
+        private void Signup_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

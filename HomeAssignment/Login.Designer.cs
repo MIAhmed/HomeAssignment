@@ -46,7 +46,7 @@ namespace HomeAssignment
             // 
             this.lblResults.AutoSize = true;
             this.lblResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResults.Location = new System.Drawing.Point(57, 27);
+            this.lblResults.Location = new System.Drawing.Point(57, 22);
             this.lblResults.Name = "lblResults";
             this.lblResults.Size = new System.Drawing.Size(55, 17);
             this.lblResults.TabIndex = 4;
@@ -62,9 +62,9 @@ namespace HomeAssignment
             this.panelMainContainer.Controls.Add(this.txtUserName);
             this.panelMainContainer.Controls.Add(this.label2);
             this.panelMainContainer.Controls.Add(this.label1);
-            this.panelMainContainer.Location = new System.Drawing.Point(33, 56);
+            this.panelMainContainer.Location = new System.Drawing.Point(33, 41);
             this.panelMainContainer.Name = "panelMainContainer";
-            this.panelMainContainer.Size = new System.Drawing.Size(409, 200);
+            this.panelMainContainer.Size = new System.Drawing.Size(387, 200);
             this.panelMainContainer.TabIndex = 6;
             // 
             // lnklblForgotPassword
@@ -155,7 +155,7 @@ namespace HomeAssignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(452, 258);
+            this.ClientSize = new System.Drawing.Size(431, 240);
             this.Controls.Add(this.panelMainContainer);
             this.Controls.Add(this.lblResults);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);

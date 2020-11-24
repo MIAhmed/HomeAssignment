@@ -30,7 +30,6 @@ namespace HomeAssignment
         private void InitializeComponent()
         {
             this.panelMainContainer = new System.Windows.Forms.Panel();
-            this.lnklblCreateAccount = new System.Windows.Forms.LinkLabel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSignup = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -40,9 +39,9 @@ namespace HomeAssignment
             this.lblResults = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
+            this.txtSite = new System.Windows.Forms.TextBox();
+            this.txtCompany = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,12 +50,11 @@ namespace HomeAssignment
             // 
             // panelMainContainer
             // 
-            this.panelMainContainer.Controls.Add(this.lnklblCreateAccount);
             this.panelMainContainer.Controls.Add(this.btnClose);
             this.panelMainContainer.Controls.Add(this.btnSignup);
-            this.panelMainContainer.Controls.Add(this.textBox3);
-            this.panelMainContainer.Controls.Add(this.textBox2);
-            this.panelMainContainer.Controls.Add(this.textBox1);
+            this.panelMainContainer.Controls.Add(this.txtCompany);
+            this.panelMainContainer.Controls.Add(this.txtSite);
+            this.panelMainContainer.Controls.Add(this.txtFullName);
             this.panelMainContainer.Controls.Add(this.txtPassword);
             this.panelMainContainer.Controls.Add(this.txtUserName);
             this.panelMainContainer.Controls.Add(this.label2);
@@ -66,25 +64,14 @@ namespace HomeAssignment
             this.panelMainContainer.Controls.Add(this.label1);
             this.panelMainContainer.Location = new System.Drawing.Point(22, 44);
             this.panelMainContainer.Name = "panelMainContainer";
-            this.panelMainContainer.Size = new System.Drawing.Size(409, 432);
+            this.panelMainContainer.Size = new System.Drawing.Size(409, 297);
             this.panelMainContainer.TabIndex = 8;
-            // 
-            // lnklblCreateAccount
-            // 
-            this.lnklblCreateAccount.AutoSize = true;
-            this.lnklblCreateAccount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lnklblCreateAccount.Location = new System.Drawing.Point(283, 315);
-            this.lnklblCreateAccount.Name = "lnklblCreateAccount";
-            this.lnklblCreateAccount.Size = new System.Drawing.Size(57, 19);
-            this.lnklblCreateAccount.TabIndex = 12;
-            this.lnklblCreateAccount.TabStop = true;
-            this.lnklblCreateAccount.Text = "Sign Up";
             // 
             // btnClose
             // 
             this.btnClose.AccessibleDescription = "";
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnClose.Location = new System.Drawing.Point(34, 371);
+            this.btnClose.Location = new System.Drawing.Point(27, 248);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(106, 32);
             this.btnClose.TabIndex = 11;
@@ -94,7 +81,7 @@ namespace HomeAssignment
             // btnSignup
             // 
             this.btnSignup.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSignup.Location = new System.Drawing.Point(177, 386);
+            this.btnSignup.Location = new System.Drawing.Point(177, 248);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(106, 32);
             this.btnSignup.TabIndex = 10;
@@ -125,6 +112,7 @@ namespace HomeAssignment
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(296, 67);
             this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Password";
@@ -136,6 +124,7 @@ namespace HomeAssignment
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(296, 18);
             this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Username";
@@ -172,32 +161,32 @@ namespace HomeAssignment
             this.button2.Text = "Close";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // txtFullName
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(27, 106);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(256, 25);
-            this.textBox1.TabIndex = 9;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFullName.Location = new System.Drawing.Point(27, 106);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(256, 25);
+            this.txtFullName.TabIndex = 9;
+            this.txtFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox2
+            // txtSite
             // 
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(27, 152);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(256, 25);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtSite.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSite.Location = new System.Drawing.Point(27, 152);
+            this.txtSite.Name = "txtSite";
+            this.txtSite.Size = new System.Drawing.Size(256, 25);
+            this.txtSite.TabIndex = 9;
+            this.txtSite.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // textBox3
+            // txtCompany
             // 
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.Location = new System.Drawing.Point(27, 198);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(256, 25);
-            this.textBox3.TabIndex = 9;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCompany.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCompany.Location = new System.Drawing.Point(27, 198);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(256, 25);
+            this.txtCompany.TabIndex = 9;
+            this.txtCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label3
             // 
@@ -205,6 +194,7 @@ namespace HomeAssignment
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(296, 113);
             this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(71, 17);
             this.label3.TabIndex = 8;
             this.label3.Text = "Full Name";
@@ -216,6 +206,7 @@ namespace HomeAssignment
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(297, 157);
             this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(32, 17);
             this.label4.TabIndex = 8;
             this.label4.Text = "Site";
@@ -227,21 +218,25 @@ namespace HomeAssignment
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(296, 202);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(17, 17);
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(67, 17);
             this.label5.TabIndex = 8;
-            this.label5.Text = "S";
+            this.label5.Text = "Company";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Signup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 488);
+            this.ClientSize = new System.Drawing.Size(422, 343);
             this.Controls.Add(this.panelMainContainer);
             this.Controls.Add(this.lblResults);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Signup";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup";
+            this.Load += new System.EventHandler(this.Signup_Load);
             this.panelMainContainer.ResumeLayout(false);
             this.panelMainContainer.PerformLayout();
             this.ResumeLayout(false);
@@ -252,7 +247,6 @@ namespace HomeAssignment
         #endregion
 
         private System.Windows.Forms.Panel panelMainContainer;
-        private System.Windows.Forms.LinkLabel lnklblCreateAccount;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSignup;
         private System.Windows.Forms.TextBox txtPassword;
@@ -262,9 +256,9 @@ namespace HomeAssignment
         private System.Windows.Forms.Label lblResults;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCompany;
+        private System.Windows.Forms.TextBox txtSite;
+        private System.Windows.Forms.TextBox txtFullName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
