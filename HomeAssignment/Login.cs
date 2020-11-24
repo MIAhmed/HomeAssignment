@@ -105,5 +105,12 @@ namespace HomeAssignment
             }
 
         }
+
+        private void lnklblCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+            this.Close();
+
+        }
     }
 }

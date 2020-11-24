@@ -32,19 +32,19 @@ namespace HomeAssignment
             this.panelMainContainer = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSignup = new System.Windows.Forms.Button();
+            this.txtCompany = new System.Windows.Forms.TextBox();
+            this.txtSite = new System.Windows.Forms.TextBox();
+            this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblResults = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.txtFullName = new System.Windows.Forms.TextBox();
-            this.txtSite = new System.Windows.Forms.TextBox();
-            this.txtCompany = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panelMainContainer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +87,34 @@ namespace HomeAssignment
             this.btnSignup.TabIndex = 10;
             this.btnSignup.Text = "Sign Up";
             this.btnSignup.UseVisualStyleBackColor = true;
+            this.btnSignup.Click += new System.EventHandler(this.btnSignup_Click);
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtCompany.Location = new System.Drawing.Point(27, 198);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(256, 25);
+            this.txtCompany.TabIndex = 9;
+            this.txtCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtSite
+            // 
+            this.txtSite.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSite.Location = new System.Drawing.Point(27, 152);
+            this.txtSite.Name = "txtSite";
+            this.txtSite.Size = new System.Drawing.Size(256, 25);
+            this.txtSite.TabIndex = 9;
+            this.txtSite.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtFullName.Location = new System.Drawing.Point(27, 106);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new System.Drawing.Size(256, 25);
+            this.txtFullName.TabIndex = 9;
+            this.txtFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtPassword
             // 
@@ -117,6 +145,42 @@ namespace HomeAssignment
             this.label2.TabIndex = 7;
             this.label2.Text = "Password";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(296, 202);
+            this.label5.Name = "label5";
+            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label5.Size = new System.Drawing.Size(67, 17);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Company";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(297, 157);
+            this.label4.Name = "label4";
+            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label4.Size = new System.Drawing.Size(32, 17);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Site";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(296, 113);
+            this.label3.Name = "label3";
+            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.label3.Size = new System.Drawing.Size(71, 17);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Full Name";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
@@ -160,69 +224,6 @@ namespace HomeAssignment
             this.button2.TabIndex = 11;
             this.button2.Text = "Close";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // txtFullName
-            // 
-            this.txtFullName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtFullName.Location = new System.Drawing.Point(27, 106);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(256, 25);
-            this.txtFullName.TabIndex = 9;
-            this.txtFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtSite
-            // 
-            this.txtSite.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtSite.Location = new System.Drawing.Point(27, 152);
-            this.txtSite.Name = "txtSite";
-            this.txtSite.Size = new System.Drawing.Size(256, 25);
-            this.txtSite.TabIndex = 9;
-            this.txtSite.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtCompany.Location = new System.Drawing.Point(27, 198);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(256, 25);
-            this.txtCompany.TabIndex = 9;
-            this.txtCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(296, 113);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label3.Size = new System.Drawing.Size(71, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Full Name";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(297, 157);
-            this.label4.Name = "label4";
-            this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label4.Size = new System.Drawing.Size(32, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Site";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(296, 202);
-            this.label5.Name = "label5";
-            this.label5.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label5.Size = new System.Drawing.Size(67, 17);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Company";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Signup
             // 

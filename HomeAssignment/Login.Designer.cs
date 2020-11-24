@@ -88,6 +88,7 @@ namespace HomeAssignment
             this.lnklblCreateAccount.TabIndex = 12;
             this.lnklblCreateAccount.TabStop = true;
             this.lnklblCreateAccount.Text = "Sign Up";
+            this.lnklblCreateAccount.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnklblCreateAccount_LinkClicked);
             // 
             // btnClose
             // 
