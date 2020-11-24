@@ -33,7 +33,7 @@ namespace HomeAssignment
             this.panelMainContainer = new System.Windows.Forms.Panel();
             this.lnklblForgotPassword = new System.Windows.Forms.LinkLabel();
             this.lnklblCreateAccount = new System.Windows.Forms.LinkLabel();
-            this.btnPassword = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
@@ -46,7 +46,7 @@ namespace HomeAssignment
             // 
             this.lblResults.AutoSize = true;
             this.lblResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResults.Location = new System.Drawing.Point(56, 27);
+            this.lblResults.Location = new System.Drawing.Point(57, 27);
             this.lblResults.Name = "lblResults";
             this.lblResults.Size = new System.Drawing.Size(55, 17);
             this.lblResults.TabIndex = 4;
@@ -56,7 +56,7 @@ namespace HomeAssignment
             // 
             this.panelMainContainer.Controls.Add(this.lnklblForgotPassword);
             this.panelMainContainer.Controls.Add(this.lnklblCreateAccount);
-            this.panelMainContainer.Controls.Add(this.btnPassword);
+            this.panelMainContainer.Controls.Add(this.btnClose);
             this.panelMainContainer.Controls.Add(this.btnLogin);
             this.panelMainContainer.Controls.Add(this.txtPassword);
             this.panelMainContainer.Controls.Add(this.txtUserName);
@@ -89,16 +89,16 @@ namespace HomeAssignment
             this.lnklblCreateAccount.TabStop = true;
             this.lnklblCreateAccount.Text = "Sign Up";
             // 
-            // btnPassword
+            // btnClose
             // 
-            this.btnPassword.AccessibleDescription = "btnClose";
-            this.btnPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnPassword.Location = new System.Drawing.Point(27, 111);
-            this.btnPassword.Name = "btnPassword";
-            this.btnPassword.Size = new System.Drawing.Size(106, 32);
-            this.btnPassword.TabIndex = 11;
-            this.btnPassword.Text = "Close";
-            this.btnPassword.UseVisualStyleBackColor = true;
+            this.btnClose.AccessibleDescription = "";
+            this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnClose.Location = new System.Drawing.Point(27, 111);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(106, 32);
+            this.btnClose.TabIndex = 11;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // btnLogin
             // 
@@ -177,7 +177,7 @@ namespace HomeAssignment
         private System.Windows.Forms.Panel panelMainContainer;
         private System.Windows.Forms.LinkLabel lnklblForgotPassword;
         private System.Windows.Forms.LinkLabel lnklblCreateAccount;
-        private System.Windows.Forms.Button btnPassword;
+        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUserName;
