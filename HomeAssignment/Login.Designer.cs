@@ -46,9 +46,9 @@ namespace HomeAssignment
             // 
             this.lblResults.AutoSize = true;
             this.lblResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResults.Location = new System.Drawing.Point(87, 27);
+            this.lblResults.Location = new System.Drawing.Point(56, 27);
             this.lblResults.Name = "lblResults";
-            this.lblResults.Size = new System.Drawing.Size(66, 20);
+            this.lblResults.Size = new System.Drawing.Size(55, 17);
             this.lblResults.TabIndex = 4;
             this.lblResults.Text = "Results";
             // 
@@ -62,7 +62,7 @@ namespace HomeAssignment
             this.panelMainContainer.Controls.Add(this.txtUserName);
             this.panelMainContainer.Controls.Add(this.label2);
             this.panelMainContainer.Controls.Add(this.label1);
-            this.panelMainContainer.Location = new System.Drawing.Point(62, 60);
+            this.panelMainContainer.Location = new System.Drawing.Point(33, 56);
             this.panelMainContainer.Name = "panelMainContainer";
             this.panelMainContainer.Size = new System.Drawing.Size(409, 200);
             this.panelMainContainer.TabIndex = 6;
@@ -73,7 +73,7 @@ namespace HomeAssignment
             this.lnklblForgotPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lnklblForgotPassword.Location = new System.Drawing.Point(28, 163);
             this.lnklblForgotPassword.Name = "lnklblForgotPassword";
-            this.lnklblForgotPassword.Size = new System.Drawing.Size(135, 23);
+            this.lnklblForgotPassword.Size = new System.Drawing.Size(112, 19);
             this.lnklblForgotPassword.TabIndex = 13;
             this.lnklblForgotPassword.TabStop = true;
             this.lnklblForgotPassword.Text = "Forgot Password";
@@ -84,7 +84,7 @@ namespace HomeAssignment
             this.lnklblCreateAccount.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lnklblCreateAccount.Location = new System.Drawing.Point(214, 163);
             this.lnklblCreateAccount.Name = "lnklblCreateAccount";
-            this.lnklblCreateAccount.Size = new System.Drawing.Size(70, 23);
+            this.lnklblCreateAccount.Size = new System.Drawing.Size(57, 19);
             this.lnklblCreateAccount.TabIndex = 12;
             this.lnklblCreateAccount.TabStop = true;
             this.lnklblCreateAccount.Text = "Sign Up";
@@ -116,7 +116,7 @@ namespace HomeAssignment
             this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPassword.Location = new System.Drawing.Point(27, 60);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(256, 30);
+            this.txtPassword.Size = new System.Drawing.Size(256, 25);
             this.txtPassword.TabIndex = 9;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -125,7 +125,7 @@ namespace HomeAssignment
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUserName.Location = new System.Drawing.Point(27, 14);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(256, 30);
+            this.txtUserName.Size = new System.Drawing.Size(256, 25);
             this.txtUserName.TabIndex = 6;
             this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -135,7 +135,7 @@ namespace HomeAssignment
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(296, 67);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 20);
+            this.label2.Size = new System.Drawing.Size(69, 17);
             this.label2.TabIndex = 7;
             this.label2.Text = "Password";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -146,16 +146,16 @@ namespace HomeAssignment
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(296, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.Size = new System.Drawing.Size(73, 17);
             this.label1.TabIndex = 8;
             this.label1.Text = "Username";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 281);
+            this.ClientSize = new System.Drawing.Size(452, 258);
             this.Controls.Add(this.panelMainContainer);
             this.Controls.Add(this.lblResults);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
