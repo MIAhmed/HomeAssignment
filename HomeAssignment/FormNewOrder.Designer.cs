@@ -29,35 +29,38 @@ namespace HomeAssignment
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dataGridNewOrders = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridNewOrders)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridNewOrders
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(908, 339);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridNewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridNewOrders.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridNewOrders.Location = new System.Drawing.Point(0, 108);
+            this.dataGridNewOrders.Name = "dataGridNewOrders";
+            this.dataGridNewOrders.RowTemplate.Height = 25;
+            this.dataGridNewOrders.Size = new System.Drawing.Size(909, 349);
+            this.dataGridNewOrders.TabIndex = 0;
+            this.dataGridNewOrders.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridNewOrders_CellPainting);
             // 
             // FormNewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 457);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridNewOrders);
             this.MaximizeBox = false;
             this.Name = "FormNewOrder";
             this.Text = "New Order";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.FormNewOrder_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridNewOrders)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridNewOrders;
     }
 }
