@@ -1,8 +1,10 @@
-﻿using System;
+﻿using HomeAssignment.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,10 +47,10 @@ namespace HomeAssignment
 
         }
 
-        public async Task DoLogin()
+        public async Task CreateAccount()
         {
             MakeFormEnable(false);
-            ChangeResultText("Please wait while logging you in...", Color.Black);
+            ChangeResultText("Please wait while creating account...", Color.Black);
 
             if (txtUserName.Text == "")
             {
@@ -60,6 +62,27 @@ namespace HomeAssignment
             if (txtPassword.Text == "")
             {
                 ChangeResultText("Please enter the Password", Color.Red);
+                MakeFormEnable(true);
+                return;
+            }
+
+            if (txtFullName.Text == "")
+            {
+                ChangeResultText("Please enter the Full Name", Color.Red);
+                MakeFormEnable(true);
+                return;
+            }
+
+            if (txtSite.Text == "")
+            {
+                ChangeResultText("Please enter Site", Color.Red);
+                MakeFormEnable(true);
+                return;
+            }
+
+            if (txtSite.Text == "")
+            {
+                ChangeResultText("Please enter Company Name", Color.Red);
                 MakeFormEnable(true);
                 return;
             }

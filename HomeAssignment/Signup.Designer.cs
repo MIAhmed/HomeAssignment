@@ -64,14 +64,14 @@ namespace HomeAssignment
             this.panelMainContainer.Controls.Add(this.label1);
             this.panelMainContainer.Location = new System.Drawing.Point(22, 44);
             this.panelMainContainer.Name = "panelMainContainer";
-            this.panelMainContainer.Size = new System.Drawing.Size(409, 297);
+            this.panelMainContainer.Size = new System.Drawing.Size(409, 396);
             this.panelMainContainer.TabIndex = 8;
             // 
             // btnClose
             // 
             this.btnClose.AccessibleDescription = "";
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnClose.Location = new System.Drawing.Point(27, 248);
+            this.btnClose.Location = new System.Drawing.Point(27, 287);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(106, 32);
             this.btnClose.TabIndex = 11;
@@ -81,7 +81,7 @@ namespace HomeAssignment
             // btnSignup
             // 
             this.btnSignup.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSignup.Location = new System.Drawing.Point(177, 248);
+            this.btnSignup.Location = new System.Drawing.Point(177, 287);
             this.btnSignup.Name = "btnSignup";
             this.btnSignup.Size = new System.Drawing.Size(106, 32);
             this.btnSignup.TabIndex = 10;
@@ -229,7 +229,7 @@ namespace HomeAssignment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 343);
+            this.ClientSize = new System.Drawing.Size(422, 452);
             this.Controls.Add(this.panelMainContainer);
             this.Controls.Add(this.lblResults);
             this.MaximizeBox = false;
