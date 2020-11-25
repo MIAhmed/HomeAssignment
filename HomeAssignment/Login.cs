@@ -1,4 +1,5 @@
 ﻿using HomeAssignment.Models;
+using HomeAssignment.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -83,13 +84,22 @@ namespace HomeAssignment
 
                     if (user != null)
                     {
-
-                        ChangeResultText("Got User", Color.Green);
+                        if (Cryptographer.Decrypt(user.Password) != txtPassword.Text.Trim())
+                        {
+                            ChangeResultText("Invalid Password.", Color.Red);
+                            MakeFormEnable(true);
+                        }
+                        else {
+                            ChangeResultText("Logged in", Color.Green);
+                            MakeFormEnable(true);
+                        }
                         
+
                     }
                     else
                     {
-                        ChangeResultText("Not Found", Color.Red);
+                        ChangeResultText("Invalid Username.", Color.Red);
+                        MakeFormEnable(true);
                     }
 
 
