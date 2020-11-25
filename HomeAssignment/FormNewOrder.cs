@@ -27,6 +27,7 @@ namespace HomeAssignment
         {
             var lstData = new List<NewOrderVM>();
 
+
             NewOrderVM row = new NewOrderVM();
 
             row.Amount = 10;
@@ -34,6 +35,11 @@ namespace HomeAssignment
             row.RawNumber = 1;
             row.TotalLength = 25;
             row.Weight = 65;
+
+            row.Sketch = new float[3, 2] { { 2, 10 }, { 8, 20 }, { 20, 30 } };
+
+            //row.Sketch = new NewOrderSketchVM();
+
 
             lstData.Add(row);
 
@@ -49,7 +55,7 @@ namespace HomeAssignment
             row.Amount = 9;
             row.Diameter = 3;
             row.RawNumber = 1;
-            row.TotalLength = 25;
+            row.TotalLength = 30;
             row.Weight = 85;
 
             lstData.Add(row);
@@ -81,9 +87,12 @@ namespace HomeAssignment
 
                 using (
 
-                    Brush gridBrush = new SolidBrush(this.dataGridNewOrders.GridColor),
+                //Brush gridBrush = new SolidBrush(this.dataGridNewOrders.GridColor),
 
-                    backColorBrush = new SolidBrush(e.CellStyle.BackColor))
+                //backColorBrush = new SolidBrush(e.CellStyle.BackColor))
+                Brush gridBrush = new SolidBrush(Color.Red),
+
+                backColorBrush = new SolidBrush(e.CellStyle.BackColor))
 
                 {
 
@@ -101,17 +110,17 @@ namespace HomeAssignment
 
                         // DataGridView takes care of the others).
 
-                        e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left,
+                        //e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left,
 
-                            e.CellBounds.Bottom - 1, e.CellBounds.Right - 1,
+                        //    e.CellBounds.Bottom - 1, e.CellBounds.Right - 1,
 
-                            e.CellBounds.Bottom - 1);
+                        //    e.CellBounds.Bottom - 1);
 
-                        e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1,
+                        //e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1,
 
-                            e.CellBounds.Top, e.CellBounds.Right - 1,
+                        //    e.CellBounds.Top, e.CellBounds.Right - 1,
 
-                            e.CellBounds.Bottom);
+                        //    e.CellBounds.Bottom);
 
 
 
@@ -125,17 +134,39 @@ namespace HomeAssignment
 
                         // Draw the text content of the cell, ignoring alignment.
 
-                        //if (e.Value != null)
+                        if (e.Value != null && e.Value.GetType() == typeof( float[,]))
 
-                        //{
+                        {
 
-                        //    e.Graphics.DrawString((String)e.Value, e.CellStyle.Font,
+                            var data = (float[,])e.Value;
 
-                        //        Brushes.Crimson, e.CellBounds.X + 2,
+                            if (data.Length >= 0)
+                            {
+                                float currentX = -1;// e.CellBounds.Left + 2;
+                                float currentY = -1;
+                                for (int i = 0 ; i < data.Length; i++)
+                                {
+                                    if (currentX == -1 && currentY == -1)
+                                    {
+                                        currentX = e.CellBounds.Left + 2 + data[i, 0];
+                                        currentY = e.CellBounds.Top + 2 + data[i, 1];
+                                    }
+                                    else
+                                    {
+                                        e.Graphics.DrawLine(gridLinePen, currentX , currentY , (e.CellBounds.Left + 2 + data[i, 0]), e.CellBounds.Top + 2 + data[i, 1]);
+                                    }
 
-                        //        e.CellBounds.Y + 2, StringFormat.GenericDefault);
+                                   
+                                }
 
-                        //}
+                            }
+                            //e.Graphics.DrawString((String)e.Value, e.CellStyle.Font,
+
+                            //    Brushes.Crimson, e.CellBounds.X + 2,
+
+                            //    e.CellBounds.Y + 2, StringFormat.GenericDefault);
+
+                        }
 
                         e.Handled = true;
 
@@ -147,5 +178,8 @@ namespace HomeAssignment
 
         
     }
+
+
+
     }
 }

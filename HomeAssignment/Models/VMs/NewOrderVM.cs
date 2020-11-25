@@ -9,7 +9,9 @@ namespace HomeAssignment.Models.VMs
     {
 
         public float Weight { get; set; }
-        public NewOrderSketchVM Sketch { get; set; }
+        //public List<NewOrderSketchLineVM> Sketch { get; set; }
+        [DisplayName("Sketch")]
+        public float[,] Sketch { get; set; }
         [DisplayName("Total Length")]
         public float TotalLength { get; set; }
         public float Amount { get; set; }
