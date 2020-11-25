@@ -90,8 +90,7 @@ namespace HomeAssignment
                             MakeFormEnable(true);
                         }
                         else {
-                            ChangeResultText("Logged in", Color.Green);
-                            MakeFormEnable(true);
+                            ShowMainForm();
                         }
                         
 
@@ -119,8 +118,21 @@ namespace HomeAssignment
         private void lnklblCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Signup frmSignup = new Signup();
-            frmSignup.Show();
             this.Hide();
+            frmSignup.Closed += (s, args) => this.Close();
+            frmSignup.Show();
+            
+
+        }
+
+        public void ShowMainForm()
+        {
+            this.BeginInvoke((Action)(() => {
+                var frmOrder = new FormNewOrder();
+                this.Hide();
+                frmOrder.Closed += (s, args) => this.Close();
+                frmOrder.Show();
+            }));
 
         }
     }
