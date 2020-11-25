@@ -54,58 +54,8 @@ namespace HomeAssignment
             MakeFormEnable(false);
             ChangeResultText("Please wait while creating account...", Color.Black);
 
-            if (txtEmail.Text == "")
+            if (!validateInputs())
             {
-                ChangeResultText("Please enter the Email", Color.Red);
-                MakeFormEnable(true);
-                return;
-            }
-
-            if (txtUserName.Text == "")
-            {
-                ChangeResultText("Please enter the Username", Color.Red);
-                MakeFormEnable(true);
-                return;
-            }
-
-            if (txtPassword.Text == "")
-            {
-                ChangeResultText("Please enter the Password", Color.Red);
-                MakeFormEnable(true);
-                return;
-            }
-
-            if (txtFullName.Text == "")
-            {
-                ChangeResultText("Please enter the Full Name", Color.Red);
-                MakeFormEnable(true);
-                return;
-            }
-
-            if (txtSite.Text == "")
-            {
-                ChangeResultText("Please enter Site", Color.Red);
-                MakeFormEnable(true);
-                return;
-            }
-
-            if (txtSite.Text == "")
-            {
-                ChangeResultText("Please enter Company Name", Color.Red);
-                MakeFormEnable(true);
-                return;
-            }
-
-            if (txtPassword.Text != txtConfirmPassword.Text)
-            {
-                ChangeResultText("Password and confirm password should be same", Color.Red);
-                MakeFormEnable(true);
-                return;
-            }
-
-            if (txtPassword.Text.Trim().Length < 6)
-            {
-                ChangeResultText("Password must contain atleast 6 characters", Color.Red);
                 MakeFormEnable(true);
                 return;
             }
@@ -176,6 +126,60 @@ namespace HomeAssignment
                 ChangeResultText("There was an error processing request", Color.Red);
                 MakeFormEnable(true);
             }
+
+        }
+
+        private bool validateInputs()
+        {
+            if (txtEmail.Text == "")
+            {
+                ChangeResultText("Please enter the Email", Color.Red);
+                return false;
+            }
+
+            if (txtUserName.Text == "")
+            {
+                ChangeResultText("Please enter the Username", Color.Red);
+                return false;
+            }
+
+            if (txtPassword.Text == "")
+            {
+                ChangeResultText("Please enter the Password", Color.Red);
+                return false;
+            }
+
+            if (txtFullName.Text == "")
+            {
+                ChangeResultText("Please enter the Full Name", Color.Red);
+                return false;
+            }
+
+            if (txtSite.Text == "")
+            {
+                ChangeResultText("Please enter Site", Color.Red);
+                return false;
+            }
+
+            if (txtSite.Text == "")
+            {
+                ChangeResultText("Please enter Company Name", Color.Red);
+                return false;
+            }
+
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                ChangeResultText("Password and confirm password should be same", Color.Red);
+                return false;
+            }
+
+            if (txtPassword.Text.Trim().Length < 6)
+            {
+                ChangeResultText("Password must contain atleast 6 characters", Color.Red);
+                return false;
+            }
+
+            return true;
 
         }
 
