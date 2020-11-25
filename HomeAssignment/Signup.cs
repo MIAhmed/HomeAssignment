@@ -1,8 +1,10 @@
 ﻿using HomeAssignment.Models;
+using HomeAssignment.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity.Validation;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -52,6 +54,13 @@ namespace HomeAssignment
             MakeFormEnable(false);
             ChangeResultText("Please wait while creating account...", Color.Black);
 
+            if (txtEmail.Text == "")
+            {
+                ChangeResultText("Please enter the Email", Color.Red);
+                MakeFormEnable(true);
+                return;
+            }
+
             if (txtUserName.Text == "")
             {
                 ChangeResultText("Please enter the Username", Color.Red);
@@ -87,27 +96,79 @@ namespace HomeAssignment
                 return;
             }
 
+            if (txtPassword.Text != txtConfirmPassword.Text)
+            {
+                ChangeResultText("Password and confirm password should be same", Color.Red);
+                MakeFormEnable(true);
+                return;
+            }
+
+            if (txtPassword.Text.Trim().Length < 6)
+            {
+                ChangeResultText("Password must contain atleast 6 characters", Color.Red);
+                MakeFormEnable(true);
+                return;
+            }
+
             try
             {
                 using (var dbx = new AppDBContext())
                 {
-                    var user = dbx.AppUsers.Where(x => x.Username == txtUserName.Text.Trim()).FirstOrDefault();
+                    var user = dbx.AppUsers.Where(x => x.Username == txtUserName.Text.Trim() || x.Email == txtEmail.Text.Trim()).FirstOrDefault();
 
                     if (user != null)
                     {
 
-                        ChangeResultText("Got User", Color.Green);
+                        if (user.Email == txtEmail.Text.Trim())
+                        {
+                            ChangeResultText("Email already exists", Color.Red);
+                            MakeFormEnable(true);
+                            return;
+                        }
+
+                        if (user.Username == txtUserName.Text.Trim())
+                        {
+                            ChangeResultText("Username already exists", Color.Red);
+                            MakeFormEnable(true);
+                            return;
+                        }
+
+
 
                     }
                     else
                     {
-                        ChangeResultText("Not Found", Color.Red);
+
+                        var newUser = new AppUser();
+                        newUser.Username = txtUserName.Text.Trim();
+                        newUser.Name = txtFullName.Text.Trim();
+                        newUser.Site = txtSite.Text.Trim();
+                        newUser.CompanyName = txtCompany.Text.Trim();
+                        newUser.Email = txtEmail.Text.Trim();
+
+                        newUser.Password = Cryptographer.Encrypt(txtPassword.Text.Trim());
+
+                        dbx.AppUsers.Add(newUser);
+                        dbx.SaveChanges();
+
+
+                        ChangeResultText("User created successfully ", Color.Green);
+                        MakeFormEnable(true);
+                        return;
+
+
                     }
 
 
 
                 }
 
+                MakeFormEnable(true);
+            }
+            catch (DbEntityValidationException ex)
+            {
+                var error = ex.EntityValidationErrors.First().ValidationErrors.First();
+                ChangeResultText(error.ErrorMessage , Color.Red);
                 MakeFormEnable(true);
             }
             catch (Exception ex)
