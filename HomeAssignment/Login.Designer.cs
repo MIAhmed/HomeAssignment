@@ -51,6 +51,7 @@ namespace HomeAssignment
             this.lblResults.TabIndex = 4;
             this.lblResults.Text = "Results";
             this.lblResults.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblResults.Click += new System.EventHandler(this.lblResults_Click);
             // 
             // panelMainContainer
             // 

@@ -29,7 +29,7 @@ namespace HomeAssignment
         private void Login_Load(object sender, EventArgs e)
         {
             lblResults.Text = "";
-            ShowMainForm();
+            //ShowMainForm();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -142,6 +142,11 @@ namespace HomeAssignment
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void lblResults_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
