@@ -279,6 +279,7 @@ namespace HomeAssignment
             this.ClientSize = new System.Drawing.Size(407, 452);
             this.Controls.Add(this.panelMainContainer);
             this.Controls.Add(this.lblResults);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Signup";
