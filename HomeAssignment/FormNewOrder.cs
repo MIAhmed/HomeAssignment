@@ -36,9 +36,26 @@ namespace HomeAssignment
             row.TotalLength = 25;
             row.Weight = 65;
 
-            row.Sketch = new float[3, 2] { { 2, 10 }, { 8, 20 }, { 20, 30 } };
+            //row.Sketch = new float[3, 2] { { 2, 10 }, { 8, 20 }, { 20, 30 } };
 
             //row.Sketch = new NewOrderSketchVM();
+
+            var sketch = new NewOrderSketchVM();
+            sketch.Lines = new List<NewOrderSketchLineVM>();
+
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(3, 2));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(2, 10));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(8, 20));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(20, 30));
+
+            row.Sketch = sketch;
+            //var skLine = new  NewOrderSketchLineVM();
+
+            //skLine.LengthX = 3;
+            //skLine.LengthY = 2;
+
+
+
 
 
             lstData.Add(row);
@@ -134,26 +151,31 @@ namespace HomeAssignment
 
                         // Draw the text content of the cell, ignoring alignment.
 
-                        if (e.Value != null && e.Value.GetType() == typeof( float[,]))
+                        if (e.Value != null && e.Value.GetType() == typeof(NewOrderSketchVM))
 
                         {
 
-                            var data = (float[,])e.Value;
+                            var lstLines = (NewOrderSketchVM)e.Value;
 
-                            if (data.Length >= 0)
+                            if (lstLines != null && lstLines.Lines != null && lstLines.Lines.Count > 0)
                             {
                                 float currentX = -1;// e.CellBounds.Left + 2;
                                 float currentY = -1;
-                                for (int i = 0 ; i < data.Length; i++)
+
+                                
+                                //for (int i = 0 ; i < data.Length; i++)
+                                foreach (var line in lstLines.Lines)
                                 {
                                     if (currentX == -1 && currentY == -1)
                                     {
-                                        currentX = e.CellBounds.Left + 2 + data[i, 0];
-                                        currentY = e.CellBounds.Top + 2 + data[i, 1];
+                                        //currentX = e.CellBounds.Left + 2 + data[i, 0];
+                                        //currentY = e.CellBounds.Top + 2 + data[i, 1];
+                                        currentX = e.CellBounds.Left + 2 + line.LengthX;
+                                        currentY = e.CellBounds.Top + 2 + line.LengthY;
                                     }
                                     else
                                     {
-                                        e.Graphics.DrawLine(gridLinePen, currentX , currentY , (e.CellBounds.Left + 2 + data[i, 0]), e.CellBounds.Top + 2 + data[i, 1]);
+                                        e.Graphics.DrawLine(gridLinePen, currentX , currentY , (e.CellBounds.Left + 2 + line.LengthX), (e.CellBounds.Top + 2 + line.LengthY));
                                     }
 
                                    

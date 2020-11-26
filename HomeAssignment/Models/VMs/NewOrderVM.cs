@@ -9,9 +9,9 @@ namespace HomeAssignment.Models.VMs
     {
 
         public float Weight { get; set; }
-        //public List<NewOrderSketchLineVM> Sketch { get; set; }
-        [DisplayName("Sketch")]
-        public float[,] Sketch { get; set; }
+        public NewOrderSketchVM Sketch { get; set; }
+        //[DisplayName("Sketch")]
+        //public float[,] Sketch { get; set; }
         [DisplayName("Total Length")]
         public float TotalLength { get; set; }
         public float Amount { get; set; }
@@ -40,7 +40,15 @@ namespace HomeAssignment.Models.VMs
     {
         public float LengthX { get; set; }
         public float LengthY { get; set; }
-  
+
+        public NewOrderSketchLineVM SeLine(float x, float y)
+        {
+            this.LengthX = x;
+            this.LengthY = y;
+
+            return this;
+        }
+
     }
 
 
