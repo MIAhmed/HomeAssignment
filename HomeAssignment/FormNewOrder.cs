@@ -43,22 +43,22 @@ namespace HomeAssignment
             var sketch = new NewOrderSketchVM();
             sketch.Lines = new List<NewOrderSketchLineVM>();
 
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(3, 2));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(2, 10));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(8, 20));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(20, 30));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(2, 5));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(5, 18));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(18, 18));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(18, 5));
 
             row.Sketch = sketch;
             //var skLine = new  NewOrderSketchLineVM();
 
             //skLine.LengthX = 3;
             //skLine.LengthY = 2;
-
-
-
-
-
             lstData.Add(row);
+
+            row= new NewOrderVM();
+
+
+            
 
             row.Amount = 11;
             row.Diameter = 3;
@@ -66,8 +66,20 @@ namespace HomeAssignment
             row.TotalLength = 20;
             row.Weight = 75;
 
+            sketch = new NewOrderSketchVM();
+            sketch.Lines = new List<NewOrderSketchLineVM>();
+
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 2));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 2));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 16));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 16));
+
+            
+            row.Sketch = sketch;
+
             lstData.Add(row);
 
+            row = new NewOrderVM();
 
             row.Amount = 9;
             row.Diameter = 3;
@@ -94,61 +106,51 @@ namespace HomeAssignment
 
                 {
 
-                Rectangle newRect = new Rectangle(e.CellBounds.X + 1,
+                //Rectangle newRect = new Rectangle(e.CellBounds.X + 1,
 
-                    e.CellBounds.Y + 1, e.CellBounds.Width - 4,
+                //    e.CellBounds.Y + 1, e.CellBounds.Width - 4,
 
-                    e.CellBounds.Height - 4);
+                //    e.CellBounds.Height - 4);
 
 
-
-                using (
-
-                //Brush gridBrush = new SolidBrush(this.dataGridNewOrders.GridColor),
-
-                //backColorBrush = new SolidBrush(e.CellStyle.BackColor))
-                Brush gridBrush = new SolidBrush(Color.Red),
-
-                backColorBrush = new SolidBrush(e.CellStyle.BackColor))
-
+                using (Brush gridBrush = new SolidBrush(this.dataGridNewOrders.GridColor), backColorBrush = new SolidBrush(e.CellStyle.BackColor))
                 {
 
                     using (Pen gridLinePen = new Pen(gridBrush))
 
-                    {
-
+                    { 
                         // Erase the cell.
 
                         e.Graphics.FillRectangle(backColorBrush, e.CellBounds);
 
 
 
-                        // Draw the grid lines (only the right and bottom lines;
+                    // Draw the grid lines (only the right and bottom lines;
 
-                        // DataGridView takes care of the others).
+                    // DataGridView takes care of the others).
 
-                        //e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left,
+                    e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left,
 
-                        //    e.CellBounds.Bottom - 1, e.CellBounds.Right - 1,
+                        e.CellBounds.Bottom - 1, e.CellBounds.Right - 1,
 
-                        //    e.CellBounds.Bottom - 1);
+                        e.CellBounds.Bottom - 1);
 
-                        //e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1,
+                    e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1,
 
-                        //    e.CellBounds.Top, e.CellBounds.Right - 1,
+                        e.CellBounds.Top, e.CellBounds.Right - 1,
 
-                        //    e.CellBounds.Bottom);
+                        e.CellBounds.Bottom);
+                    }
 
+                }
 
+                using (Brush gridBrush = new SolidBrush(Color.Red),  backColorBrush = new SolidBrush(e.CellStyle.BackColor))
+                {
 
-                        // Draw the inset highlight box.
+                    using (Pen gridLinePen = new Pen(gridBrush))
+                    {
 
-                        e.Graphics.DrawEllipse(Pens.Blue, newRect);
-
-
-
-
-
+                        
                         // Draw the text content of the cell, ignoring alignment.
 
                         if (e.Value != null && e.Value.GetType() == typeof(NewOrderSketchVM))
@@ -176,12 +178,17 @@ namespace HomeAssignment
                                     else
                                     {
                                         e.Graphics.DrawLine(gridLinePen, currentX , currentY , (e.CellBounds.Left + 2 + line.LengthX), (e.CellBounds.Top + 2 + line.LengthY));
+
+                                        currentX = e.CellBounds.Left + 2 + line.LengthX;
+                                        currentY = e.CellBounds.Top + 2 + line.LengthY;
                                     }
 
                                    
                                 }
 
                             }
+
+                            
                             //e.Graphics.DrawString((String)e.Value, e.CellStyle.Font,
 
                             //    Brushes.Crimson, e.CellBounds.X + 2,
