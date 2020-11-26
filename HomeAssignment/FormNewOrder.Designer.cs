@@ -52,6 +52,7 @@ namespace HomeAssignment
             this.Controls.Add(this.dataGridNewOrders);
             this.MaximizeBox = false;
             this.Name = "FormNewOrder";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Text = "New Order";
             this.Load += new System.EventHandler(this.FormNewOrder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridNewOrders)).EndInit();

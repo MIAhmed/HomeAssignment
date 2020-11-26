@@ -44,13 +44,14 @@ namespace HomeAssignment
             // 
             // lblResults
             // 
-            this.lblResults.AutoSize = true;
             this.lblResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResults.Location = new System.Drawing.Point(57, 22);
+            this.lblResults.Location = new System.Drawing.Point(33, 4);
             this.lblResults.Name = "lblResults";
-            this.lblResults.Size = new System.Drawing.Size(55, 17);
+            this.lblResults.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblResults.Size = new System.Drawing.Size(369, 34);
             this.lblResults.TabIndex = 4;
             this.lblResults.Text = "Results";
+            this.lblResults.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelMainContainer
             // 
@@ -164,13 +165,13 @@ namespace HomeAssignment
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.panelMainContainer.ResumeLayout(false);
             this.panelMainContainer.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

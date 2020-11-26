@@ -249,13 +249,14 @@ namespace HomeAssignment
             // 
             // lblResults
             // 
-            this.lblResults.AutoSize = true;
             this.lblResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResults.Location = new System.Drawing.Point(42, 15);
+            this.lblResults.Location = new System.Drawing.Point(12, 8);
             this.lblResults.Name = "lblResults";
-            this.lblResults.Size = new System.Drawing.Size(55, 17);
+            this.lblResults.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblResults.Size = new System.Drawing.Size(367, 39);
             this.lblResults.TabIndex = 7;
             this.lblResults.Text = "Results";
+            this.lblResults.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button1
             // 
@@ -288,13 +289,13 @@ namespace HomeAssignment
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Signup";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signup";
             this.Load += new System.EventHandler(this.Signup_Load);
             this.panelMainContainer.ResumeLayout(false);
             this.panelMainContainer.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
