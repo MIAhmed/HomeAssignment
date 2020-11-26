@@ -115,7 +115,7 @@ namespace HomeAssignment
 
                 }
 
-                using (Brush gridBrush = new SolidBrush(Color.Red),  backColorBrush = new SolidBrush(e.CellStyle.BackColor))
+                using (Brush gridBrush = new SolidBrush(Color.Black),  backColorBrush = new SolidBrush(e.CellStyle.BackColor))
                 {
                     using (Pen gridLinePen = new Pen(gridBrush))
                     {
@@ -143,8 +143,38 @@ namespace HomeAssignment
 
                                         e.Graphics.DrawLine(gridLinePen, currentX, currentY, tempNextX, tempNextY);
 
-                                        currentX = tempNextX;// e.CellBounds.Left + 2 + line.LengthX;
-                                        currentY = tempNextY;// e.CellBounds.Top + 2 + line.LengthY;
+                                        float sDrawX = 0;
+                                        float sDrawY = 0;
+                                        float sLenght = 0;
+
+                                        if (currentX == tempNextX)
+                                        {
+                                            sDrawX = currentX - 2;
+                                            sDrawY = ((currentY + tempNextY) / 2) - 4;
+                                        }
+                                        else if (currentY == tempNextY)
+                                        {
+                                            sDrawX = currentX - 2;
+                                            sDrawY = ((currentY + tempNextY) / 2) -4;
+                                        }
+                                        else
+                                        {
+                                            sDrawX = currentX - 4;
+                                            sDrawY = currentY  - 4;
+
+                                        }
+
+                                        sLenght = Math.Abs((tempNextX - currentX) + (tempNextY - currentY));
+
+                                        e.Graphics.DrawString(sLenght.ToString() , new Font(FontFamily.GenericSansSerif, 5), Brushes.Crimson, sDrawX, sDrawY, StringFormat.GenericDefault);
+
+
+                                        currentX = tempNextX;
+                                        currentY = tempNextY;
+
+                                        
+
+
                                     }
                                 }
                             }
