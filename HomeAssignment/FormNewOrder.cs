@@ -36,29 +36,19 @@ namespace HomeAssignment
             row.TotalLength = 25;
             row.Weight = 65;
 
-            //row.Sketch = new float[3, 2] { { 2, 10 }, { 8, 20 }, { 20, 30 } };
-
-            //row.Sketch = new NewOrderSketchVM();
-
             var sketch = new NewOrderSketchVM();
             sketch.Lines = new List<NewOrderSketchLineVM>();
 
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(2, 5));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(5, 18));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(18, 18));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(18, 5));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 2));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 16));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(38, 16));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 5));
 
             row.Sketch = sketch;
-            //var skLine = new  NewOrderSketchLineVM();
-
-            //skLine.LengthX = 3;
-            //skLine.LengthY = 2;
+            
             lstData.Add(row);
 
             row= new NewOrderVM();
-
-
-            
 
             row.Amount = 11;
             row.Diameter = 3;
@@ -74,7 +64,6 @@ namespace HomeAssignment
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 16));
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 16));
 
-            
             row.Sketch = sketch;
 
             lstData.Add(row);
@@ -87,126 +76,83 @@ namespace HomeAssignment
             row.TotalLength = 30;
             row.Weight = 85;
 
+            sketch = new NewOrderSketchVM();
+            sketch.Lines = new List<NewOrderSketchLineVM>();
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 2));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 10));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 16));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 16));
+
+            row.Sketch = sketch;
+
+
             lstData.Add(row);
 
             dataGridNewOrders.DataSource = lstData;
-
-            
-
-
-            //DataGridViewColum
 
 
         }
 
         private void dataGridNewOrders_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            //if (this.dataGridNewOrders.CurrentCell .RowIndex == e.RowIndex && this.dataGridNewOrders.CurrentCell.ColumnIndex == e.ColumnIndex)
-                if (e.ColumnIndex == 1 && e.RowIndex != -1)// this.dataGridNewOrders.CurrentCell.RowIndex == e.RowIndex && this.dataGridNewOrders.CurrentCell.ColumnIndex == e.ColumnIndex)
-
-                {
-
-                //Rectangle newRect = new Rectangle(e.CellBounds.X + 1,
-
-                //    e.CellBounds.Y + 1, e.CellBounds.Width - 4,
-
-                //    e.CellBounds.Height - 4);
-
-
+            
+            if (e.ColumnIndex == 1 && e.RowIndex != -1)
+            {
+                
                 using (Brush gridBrush = new SolidBrush(this.dataGridNewOrders.GridColor), backColorBrush = new SolidBrush(e.CellStyle.BackColor))
                 {
 
                     using (Pen gridLinePen = new Pen(gridBrush))
-
                     { 
                         // Erase the cell.
-
                         e.Graphics.FillRectangle(backColorBrush, e.CellBounds);
 
+                        // Draw the grid lines (only the right and bottom lines;
+                        e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left, e.CellBounds.Bottom - 1, e.CellBounds.Right - 1, e.CellBounds.Bottom - 1);
+                        e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1,e.CellBounds.Top, e.CellBounds.Right - 1,e.CellBounds.Bottom);
 
-
-                    // Draw the grid lines (only the right and bottom lines;
-
-                    // DataGridView takes care of the others).
-
-                    e.Graphics.DrawLine(gridLinePen, e.CellBounds.Left,
-
-                        e.CellBounds.Bottom - 1, e.CellBounds.Right - 1,
-
-                        e.CellBounds.Bottom - 1);
-
-                    e.Graphics.DrawLine(gridLinePen, e.CellBounds.Right - 1,
-
-                        e.CellBounds.Top, e.CellBounds.Right - 1,
-
-                        e.CellBounds.Bottom);
                     }
 
                 }
 
                 using (Brush gridBrush = new SolidBrush(Color.Red),  backColorBrush = new SolidBrush(e.CellStyle.BackColor))
                 {
-
                     using (Pen gridLinePen = new Pen(gridBrush))
                     {
-
-                        
-                        // Draw the text content of the cell, ignoring alignment.
-
                         if (e.Value != null && e.Value.GetType() == typeof(NewOrderSketchVM))
-
                         {
-
                             var lstLines = (NewOrderSketchVM)e.Value;
 
                             if (lstLines != null && lstLines.Lines != null && lstLines.Lines.Count > 0)
                             {
-                                float currentX = -1;// e.CellBounds.Left + 2;
+                                float currentX = -1;
                                 float currentY = -1;
 
-                                
-                                //for (int i = 0 ; i < data.Length; i++)
                                 foreach (var line in lstLines.Lines)
                                 {
                                     if (currentX == -1 && currentY == -1)
                                     {
-                                        //currentX = e.CellBounds.Left + 2 + data[i, 0];
-                                        //currentY = e.CellBounds.Top + 2 + data[i, 1];
                                         currentX = e.CellBounds.Left + 2 + line.LengthX;
                                         currentY = e.CellBounds.Top + 2 + line.LengthY;
                                     }
                                     else
                                     {
-                                        e.Graphics.DrawLine(gridLinePen, currentX , currentY , (e.CellBounds.Left + 2 + line.LengthX), (e.CellBounds.Top + 2 + line.LengthY));
+                                        e.Graphics.DrawLine(gridLinePen, currentX, currentY, (e.CellBounds.Left + 2 + line.LengthX), (e.CellBounds.Top + 2 + line.LengthY));
 
                                         currentX = e.CellBounds.Left + 2 + line.LengthX;
                                         currentY = e.CellBounds.Top + 2 + line.LengthY;
                                     }
-
-                                   
                                 }
-
                             }
-
-                            
-                            //e.Graphics.DrawString((String)e.Value, e.CellStyle.Font,
-
-                            //    Brushes.Crimson, e.CellBounds.X + 2,
-
-                            //    e.CellBounds.Y + 2, StringFormat.GenericDefault);
-
                         }
-
                         e.Handled = true;
 
                     }
-
                 }
-
             }
 
         
-    }
+        }
 
 
 
