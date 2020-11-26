@@ -137,10 +137,14 @@ namespace HomeAssignment
                                     }
                                     else
                                     {
-                                        e.Graphics.DrawLine(gridLinePen, currentX, currentY, (e.CellBounds.Left + 2 + line.LengthX), (e.CellBounds.Top + 2 + line.LengthY));
+                                        float tempNextX = e.CellBounds.Left + 2 + line.LengthX;
+                                        float tempNextY = e.CellBounds.Top + 2 + line.LengthY;
 
-                                        currentX = e.CellBounds.Left + 2 + line.LengthX;
-                                        currentY = e.CellBounds.Top + 2 + line.LengthY;
+
+                                        e.Graphics.DrawLine(gridLinePen, currentX, currentY, tempNextX, tempNextY);
+
+                                        currentX = tempNextX;// e.CellBounds.Left + 2 + line.LengthX;
+                                        currentY = tempNextY;// e.CellBounds.Top + 2 + line.LengthY;
                                     }
                                 }
                             }
