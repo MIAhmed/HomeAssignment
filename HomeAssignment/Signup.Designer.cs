@@ -85,6 +85,7 @@ namespace HomeAssignment
             this.btnClose.TabIndex = 8;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnSignup
             // 
@@ -104,7 +105,6 @@ namespace HomeAssignment
             this.txtCompany.Name = "txtCompany";
             this.txtCompany.Size = new System.Drawing.Size(256, 25);
             this.txtCompany.TabIndex = 6;
-            this.txtCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtSite
             // 
@@ -113,7 +113,6 @@ namespace HomeAssignment
             this.txtSite.Name = "txtSite";
             this.txtSite.Size = new System.Drawing.Size(256, 25);
             this.txtSite.TabIndex = 5;
-            this.txtSite.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtEmail
             // 
@@ -122,7 +121,6 @@ namespace HomeAssignment
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(256, 25);
             this.txtEmail.TabIndex = 0;
-            this.txtEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtFullName
             // 
@@ -131,7 +129,6 @@ namespace HomeAssignment
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Size = new System.Drawing.Size(256, 25);
             this.txtFullName.TabIndex = 1;
-            this.txtFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtConfirmPassword
             // 
@@ -141,7 +138,6 @@ namespace HomeAssignment
             this.txtConfirmPassword.PasswordChar = '*';
             this.txtConfirmPassword.Size = new System.Drawing.Size(256, 25);
             this.txtConfirmPassword.TabIndex = 4;
-            this.txtConfirmPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtPassword
             // 
@@ -151,7 +147,6 @@ namespace HomeAssignment
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(256, 25);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label6
             // 
@@ -173,7 +168,6 @@ namespace HomeAssignment
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(256, 25);
             this.txtUserName.TabIndex = 2;
-            this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -252,7 +246,6 @@ namespace HomeAssignment
             this.lblResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblResults.Location = new System.Drawing.Point(12, 8);
             this.lblResults.Name = "lblResults";
-            this.lblResults.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblResults.Size = new System.Drawing.Size(367, 39);
             this.lblResults.TabIndex = 7;
             this.lblResults.Text = "Results";

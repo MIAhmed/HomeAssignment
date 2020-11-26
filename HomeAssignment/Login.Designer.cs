@@ -45,9 +45,8 @@ namespace HomeAssignment
             // lblResults
             // 
             this.lblResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblResults.Location = new System.Drawing.Point(33, 4);
+            this.lblResults.Location = new System.Drawing.Point(24, 4);
             this.lblResults.Name = "lblResults";
-            this.lblResults.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblResults.Size = new System.Drawing.Size(369, 34);
             this.lblResults.TabIndex = 4;
             this.lblResults.Text = "Results";
@@ -63,7 +62,7 @@ namespace HomeAssignment
             this.panelMainContainer.Controls.Add(this.txtUserName);
             this.panelMainContainer.Controls.Add(this.label2);
             this.panelMainContainer.Controls.Add(this.label1);
-            this.panelMainContainer.Location = new System.Drawing.Point(33, 41);
+            this.panelMainContainer.Location = new System.Drawing.Point(24, 41);
             this.panelMainContainer.Name = "panelMainContainer";
             this.panelMainContainer.Size = new System.Drawing.Size(387, 200);
             this.panelMainContainer.TabIndex = 6;
@@ -78,6 +77,7 @@ namespace HomeAssignment
             this.lnklblForgotPassword.TabIndex = 13;
             this.lnklblForgotPassword.TabStop = true;
             this.lnklblForgotPassword.Text = "Forgot Password";
+            this.lnklblForgotPassword.Visible = false;
             // 
             // lnklblCreateAccount
             // 
@@ -101,6 +101,7 @@ namespace HomeAssignment
             this.btnClose.TabIndex = 11;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnLogin
             // 
@@ -119,18 +120,18 @@ namespace HomeAssignment
             this.txtPassword.Location = new System.Drawing.Point(27, 60);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
+            this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtPassword.Size = new System.Drawing.Size(256, 25);
             this.txtPassword.TabIndex = 9;
-            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtUserName.Location = new System.Drawing.Point(27, 14);
             this.txtUserName.Name = "txtUserName";
+            this.txtUserName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserName.Size = new System.Drawing.Size(256, 25);
             this.txtUserName.TabIndex = 6;
-            this.txtUserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label2
             // 
@@ -166,6 +167,7 @@ namespace HomeAssignment
             this.MinimizeBox = false;
             this.Name = "Login";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);

@@ -96,7 +96,7 @@ namespace HomeAssignment
         private void dataGridNewOrders_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             
-            if (e.ColumnIndex == 1 && e.RowIndex != -1)
+            if (e.ColumnIndex == 4 && e.RowIndex != -1)
             {
                 
                 using (Brush gridBrush = new SolidBrush(this.dataGridNewOrders.GridColor), backColorBrush = new SolidBrush(e.CellStyle.BackColor))
@@ -154,7 +154,24 @@ namespace HomeAssignment
         
         }
 
+        private void btnUploadPDF_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
 
 
+                dlg.Filter = "PDF Files (*.pdf)|*.pdf";
+
+
+
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    lblPDFFileName.Text = "File Name: " + dlg.FileName;
+                }
+
+
+
+            }
+        }
     }
 }

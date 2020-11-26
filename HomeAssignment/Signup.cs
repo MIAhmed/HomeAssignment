@@ -103,6 +103,7 @@ namespace HomeAssignment
 
 
                         ChangeResultText("User created successfully ", Color.Green);
+                        ClearInputs();
                         MakeFormEnable(true);
                         return;
 
@@ -183,9 +184,29 @@ namespace HomeAssignment
 
         }
 
+        public void ClearInputs()
+        {
+            this.BeginInvoke((Action)(() => {
+                txtSite.Text = "";
+                txtCompany.Text = "";
+                txtConfirmPassword.Text = "";
+                txtEmail.Text = "";
+                txtFullName.Text = "";
+                txtPassword.Text = "";
+                txtUserName.Text = "";
+                
+            }));
+
+        }
+
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -37,10 +37,10 @@ namespace HomeAssignment
             // 
             this.dataGridOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridOrders.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridOrders.Location = new System.Drawing.Point(0, 28);
+            this.dataGridOrders.Location = new System.Drawing.Point(0, 41);
             this.dataGridOrders.Name = "dataGridOrders";
             this.dataGridOrders.RowTemplate.Height = 25;
-            this.dataGridOrders.Size = new System.Drawing.Size(800, 422);
+            this.dataGridOrders.Size = new System.Drawing.Size(800, 409);
             this.dataGridOrders.TabIndex = 1;
             // 
             // FormOrders

@@ -29,7 +29,7 @@ namespace HomeAssignment
         private void Login_Load(object sender, EventArgs e)
         {
             lblResults.Text = "";
-            //ShowMainForm();
+            ShowMainForm();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -118,9 +118,11 @@ namespace HomeAssignment
 
         private void lnklblCreateAccount_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            txtUserName.Text = "";
+            txtPassword.Text = "";
             Signup frmSignup = new Signup();
             this.Hide();
-            frmSignup.Closed += (s, args) => this.Close();
+            frmSignup.Closed += (s, args) => this.Show();
             frmSignup.Show();
             
 
@@ -135,6 +137,11 @@ namespace HomeAssignment
                 frmOrder.Show();
             }));
 
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
