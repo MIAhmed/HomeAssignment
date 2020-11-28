@@ -33,6 +33,8 @@ namespace HomeAssignment.Models.VMs
         public float LengthX { get; set; }
         public float LengthY { get; set; }
 
+        public float Diminution { get; set; }
+
         public NewOrderSketchLineVM SeLine(float x, float y)
         {
             this.LengthX = x;

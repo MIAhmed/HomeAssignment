@@ -44,6 +44,7 @@ namespace HomeAssignment
             this.dataGridOrders.RowTemplate.Height = 25;
             this.dataGridOrders.Size = new System.Drawing.Size(800, 419);
             this.dataGridOrders.TabIndex = 1;
+            this.dataGridOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridOrders_CellClick);
             // 
             // FormOrders
             // 

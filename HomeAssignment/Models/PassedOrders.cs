@@ -21,7 +21,9 @@ namespace HomeAssignment.Models
         public string OrderName { get; set; }
         [DisplayName("Order Status")]
         public string OrderStatus { get; set; }
-        [DisplayName("Date Of Order")]
+        [DisplayName("Order Date")]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode=true)]
+        [DataType(DataType.Date)]
         public DateTime DateOfOrder { get; set; }
         [DisplayName("Total Wight")]
         public float TotalWight { get; set; }

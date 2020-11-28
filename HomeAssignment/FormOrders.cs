@@ -31,7 +31,19 @@ namespace HomeAssignment
 
             dataGridOrders.DataSource = lstOrders;
 
-        
+            //3 5
+            dataGridOrders.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dataGridOrders.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+
+        }
+
+        private void dataGridOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var frmOrder = new FormNewOrder();
+            //this.Hide();
+            //frmOrder.Closed += (s, args) => this.Show();
+            frmOrder.ShowDialog();
         }
     }
 }
