@@ -19,12 +19,6 @@ namespace HomeAssignment
             InitializeComponent();
         }
 
-        
-
-
-       
-
-       
 
         private void Login_Load(object sender, EventArgs e)
         {
@@ -34,8 +28,7 @@ namespace HomeAssignment
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //var task = DoLogin();
-
+            
             var task = Task.Factory.StartNew(() => DoLogin());
         }
 

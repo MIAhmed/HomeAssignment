@@ -55,6 +55,7 @@ namespace HomeAssignment
             this.MaximizeBox = false;
             this.Name = "FormOrders";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Orders";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOrders)).EndInit();
