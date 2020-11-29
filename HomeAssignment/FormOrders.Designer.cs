@@ -30,6 +30,7 @@ namespace HomeAssignment
         private void InitializeComponent()
         {
             this.dataGridOrders = new System.Windows.Forms.DataGridView();
+            this.btnNewOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,11 +47,22 @@ namespace HomeAssignment
             this.dataGridOrders.TabIndex = 1;
             this.dataGridOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridOrders_CellClick);
             // 
+            // btnNewOrder
+            // 
+            this.btnNewOrder.Location = new System.Drawing.Point(11, 4);
+            this.btnNewOrder.Name = "btnNewOrder";
+            this.btnNewOrder.Size = new System.Drawing.Size(89, 22);
+            this.btnNewOrder.TabIndex = 5;
+            this.btnNewOrder.Text = "New Order";
+            this.btnNewOrder.UseVisualStyleBackColor = true;
+            this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
+            // 
             // FormOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnNewOrder);
             this.Controls.Add(this.dataGridOrders);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -68,5 +80,6 @@ namespace HomeAssignment
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridOrders;
+        private System.Windows.Forms.Button btnNewOrder;
     }
 }

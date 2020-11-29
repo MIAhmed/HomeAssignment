@@ -23,7 +23,7 @@ namespace HomeAssignment
         private void Login_Load(object sender, EventArgs e)
         {
             lblResults.Text = "";
-            //ShowMainForm();
+            ShowMainForm();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -124,7 +124,7 @@ namespace HomeAssignment
         public void ShowMainForm()
         {
             this.BeginInvoke((Action)(() => {
-                var frmOrder = new FormNewOrder();
+                var frmOrder = new FormOrders();
                 this.Hide();
                 frmOrder.Closed += (s, args) => this.Close();
                 frmOrder.Show();

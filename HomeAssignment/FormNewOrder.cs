@@ -1,4 +1,5 @@
-﻿using HomeAssignment.Models.VMs;
+﻿using HomeAssignment.Models;
+using HomeAssignment.Models.VMs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,9 +17,39 @@ namespace HomeAssignment
             InitializeComponent();
         }
 
+        public bool IsNew = false;
+        public PassedOrders passedOrder = null;
+
+
         private void FormNewOrder_Load(object sender, EventArgs e)
         {
-            GenerateData();
+            if (IsNew)
+            {
+                dataGridNewOrders.Visible = false;
+                panelMainContainer.Enabled = false;
+            }
+            else
+            {
+                GenerateData();
+                dataGridNewOrders.Visible = true;
+                panelMainContainer.Enabled = true;
+            }
+        }
+
+        private void LoadOrderData()
+        {
+            if (passedOrder != null)
+            {
+                txtOrderId.Text = passedOrder.Id.ToString();
+                txtOrderName.Text = passedOrder.OrderName;
+                txtOrderStatus.Text = passedOrder.OrderStatus;
+                txtTotalWight.Text = passedOrder.TotalWight.ToString();
+                txtEstimatedSupplingDate.Text = passedOrder.EstimatedSupplingDate.ToString();
+                txtDateOfOrder.Text = passedOrder.DateOfOrder.ToString();
+
+            }
+        
+        
         }
 
 
@@ -201,6 +232,15 @@ namespace HomeAssignment
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     lblPDFFileName.Text = "File Name: " + dlg.FileName;
+
+
+                    if (IsNew)
+                    {
+                        GenerateData();
+                        dataGridNewOrders.Visible = true;
+                        panelMainContainer.Enabled = true;
+                    }
+                    
                 }
 
 

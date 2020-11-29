@@ -43,7 +43,18 @@ namespace HomeAssignment
             var frmOrder = new FormNewOrder();
             //this.Hide();
             //frmOrder.Closed += (s, args) => this.Show();
+            frmOrder.IsNew = false;
             frmOrder.ShowDialog();
+        }
+
+        private void btnNewOrder_Click(object sender, EventArgs e)
+        {
+            var frmOrder = new FormNewOrder();
+            //this.Hide();
+            //frmOrder.Closed += (s, args) => this.Show();
+            frmOrder.IsNew = true;
+            frmOrder.ShowDialog();
+
         }
     }
 }
