@@ -26,6 +26,7 @@ namespace HomeAssignment
 
         private void GenerateData() 
         {
+
             try
             {
                 List<Order> lstOrders = new List<Order>();
@@ -47,6 +48,8 @@ namespace HomeAssignment
                     
 
                 }
+
+
                 dataGridOrders.DataSource = lstOrders;
 
                 //3 5
