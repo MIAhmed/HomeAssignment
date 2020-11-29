@@ -29,9 +29,12 @@ namespace HomeAssignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormOrders));
             this.dataGridOrders = new System.Windows.Forms.DataGridView();
             this.btnNewOrder = new System.Windows.Forms.Button();
+            this.pictureLoading = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOrders)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLoading)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridOrders
@@ -57,11 +60,24 @@ namespace HomeAssignment
             this.btnNewOrder.UseVisualStyleBackColor = true;
             this.btnNewOrder.Click += new System.EventHandler(this.btnNewOrder_Click);
             // 
+            // pictureLoading
+            // 
+            this.pictureLoading.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureLoading.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureLoading.Image = ((System.Drawing.Image)(resources.GetObject("pictureLoading.Image")));
+            this.pictureLoading.Location = new System.Drawing.Point(261, 154);
+            this.pictureLoading.Name = "pictureLoading";
+            this.pictureLoading.Size = new System.Drawing.Size(301, 140);
+            this.pictureLoading.TabIndex = 6;
+            this.pictureLoading.TabStop = false;
+            this.pictureLoading.Visible = false;
+            // 
             // FormOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureLoading);
             this.Controls.Add(this.btnNewOrder);
             this.Controls.Add(this.dataGridOrders);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -73,6 +89,7 @@ namespace HomeAssignment
             this.Text = "Orders";
             this.Load += new System.EventHandler(this.FormOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridOrders)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureLoading)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -81,5 +98,6 @@ namespace HomeAssignment
 
         private System.Windows.Forms.DataGridView dataGridOrders;
         private System.Windows.Forms.Button btnNewOrder;
+        private System.Windows.Forms.PictureBox pictureLoading;
     }
 }

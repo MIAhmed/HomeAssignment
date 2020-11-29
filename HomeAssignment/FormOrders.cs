@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HomeAssignment
@@ -24,11 +25,23 @@ namespace HomeAssignment
 
         public bool dataChangedFromNewOrder = false;
 
-        private void GenerateData() 
-        {
 
+        private void GenerateData()
+        {
+            var task = Task.Factory.StartNew(() => LoadOrdersData());
+        }
+
+        private async Task LoadOrdersData() 
+        {
+            
             try
             {
+                this.BeginInvoke((Action)(() => {
+                    btnNewOrder.Enabled = false;
+                    dataGridOrders.Enabled = false;
+                    pictureLoading.Visible = true;
+                }));
+
                 List<Order> lstOrders = new List<Order>();
                 using (var dbx = new AppDBContext())
                 {
@@ -45,16 +58,15 @@ namespace HomeAssignment
                         lstOrders = dbx.Orders.Select(x => x).ToList();
                     }
 
-                    
-
+                   
                 }
 
-
-                dataGridOrders.DataSource = lstOrders;
-
-                //3 5
-                dataGridOrders.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy";
-                dataGridOrders.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                this.BeginInvoke((Action)(() => {
+                    dataGridOrders.DataSource = lstOrders;
+                    dataGridOrders.Columns[3].DefaultCellStyle.Format = "dd/MM/yyyy";
+                    dataGridOrders.Columns[5].DefaultCellStyle.Format = "dd/MM/yyyy";
+                }));
+                
 
             }
             catch (Exception ex)
@@ -62,6 +74,13 @@ namespace HomeAssignment
 
                 MessageBox.Show("There was an error while loading data");
             }
+
+            this.BeginInvoke((Action)(() => {
+                btnNewOrder.Enabled = true;
+                dataGridOrders.Enabled = true;
+                pictureLoading.Visible = false;
+            }));
+            
 
         }
 
