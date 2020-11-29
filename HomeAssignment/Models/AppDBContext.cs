@@ -9,5 +9,7 @@ namespace HomeAssignment.Models
     public class AppDBContext : DbContext
     {
         public DbSet<AppUser> AppUsers { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
     }
 }

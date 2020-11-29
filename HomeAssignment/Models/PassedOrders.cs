@@ -7,12 +7,8 @@ using System.Text;
 
 namespace HomeAssignment.Models
 {
-    public class PassedOrder
+    public class Order
     {
-        
-
-        
-       
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [DisplayName("Order Number")]

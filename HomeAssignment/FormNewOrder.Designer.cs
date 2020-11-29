@@ -40,7 +40,7 @@ namespace HomeAssignment
             this.txtOrderName = new System.Windows.Forms.TextBox();
             this.txtTotalWeight = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtOrderId = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -91,7 +91,7 @@ namespace HomeAssignment
             this.panelMainContainer.Controls.Add(this.txtOrderName);
             this.panelMainContainer.Controls.Add(this.txtTotalWeight);
             this.panelMainContainer.Controls.Add(this.label7);
-            this.panelMainContainer.Controls.Add(this.label4);
+            this.panelMainContainer.Controls.Add(this.lblResult);
             this.panelMainContainer.Controls.Add(this.label5);
             this.panelMainContainer.Controls.Add(this.txtOrderId);
             this.panelMainContainer.Controls.Add(this.label3);
@@ -177,16 +177,14 @@ namespace HomeAssignment
             this.label7.Text = "Est Date Of Supply";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // lblResult
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(699, 91);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(67, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Order Date";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblResult.Location = new System.Drawing.Point(12, 128);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(675, 20);
+            this.lblResult.TabIndex = 7;
+            this.lblResult.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label5
             // 
@@ -296,7 +294,7 @@ namespace HomeAssignment
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtOrderName;
         private System.Windows.Forms.TextBox txtTotalWeight;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.TextBox txtOrderId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

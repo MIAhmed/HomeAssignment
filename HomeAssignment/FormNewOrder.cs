@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace HomeAssignment
@@ -18,26 +20,27 @@ namespace HomeAssignment
         }
 
         public bool IsNew = false;
-        public PassedOrder passedOrder = null;
-
+        public Order passedOrder = null;
+        public FormOrders FrmOrder = null;
 
         private void FormNewOrder_Load(object sender, EventArgs e)
         {
             if (IsNew)
             {
                 dataGridNewOrders.Visible = false;
-                panelMainContainer.Enabled = false;
+                //panelMainContainer.Enabled = false;
+                MakeFormEnable(false);
             }
             else
             {
                 GenerateData();
                 dataGridNewOrders.Visible = true;
-                panelMainContainer.Enabled = true;
-                LoadOrderData();
+                MakeFormEnable(true);
+                LoadOrderExistingData();
             }
         }
 
-        private void LoadOrderData()
+        private void LoadOrderExistingData()
         {
             if (passedOrder != null)
             {
@@ -50,8 +53,9 @@ namespace HomeAssignment
 
             }
         
-        
         }
+
+        
 
 
 
@@ -251,15 +255,143 @@ namespace HomeAssignment
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (IsNew)
+            ChangeResultText("", Color.Black);
+            MakeFormEnable(false);
+            if (!validateInputs())
+            {
+                MakeFormEnable(true);
+                return;
+            }
+
+            int existingOrderId = 0;
+
+            if (!IsNew)
+            {
+                int.TryParse(txtOrderId.Text.Trim(), out existingOrderId);
+            }
+            var task = Task.Factory.StartNew(() => SaveOrderData(existingOrderId));
+
+
+            
+        }
+
+
+        public async Task SaveOrderData(int existingOrderId)
+        {
+            try
             {
 
+                float weight = 0;
+
+                ChangeResultText("Saving order please wait", Color.Black);
+
+                if (!float.TryParse(txtTotalWeight.Text.Trim(), out weight))
+                {
+                    ChangeResultText("Please enter valid Total Weight", Color.Red);
+                    MakeFormEnable(false);
+                }
+
+
+                using (var dbx = new AppDBContext())
+                {
+                    Order order = null;
+                                        
+                    if (existingOrderId > 0)
+                    {
+                        order = dbx.Orders.Where(x => x.Id == existingOrderId).FirstOrDefault();
+                    }
+
+                    if (order == null)
+                    {
+                        order = new Order();
+                        dbx.Orders.Add(order);
+
+                        if (existingOrderId > 0)
+                        {
+                            order.Id = existingOrderId;
+                        }
+                    }
+
+                    order.OrderName = txtOrderName.Text.Trim();
+                    DropDownOrderStatus.BeginInvoke((Action)(() => {
+                        order.OrderStatus = (string)DropDownOrderStatus.Items[DropDownOrderStatus.SelectedIndex];
+                    }));
+                    
+                    order.TotalWight = weight;
+                    order.EstimatedSupplingDate = dtEstDataOfSupply.Value;
+                    order.DateOfOrder = dtDateOfOrder.Value;
+                    dbx.SaveChanges();
+
+                    MakeFormEnable(true);
+
+                    this.BeginInvoke((Action)(() => {
+                        FrmOrder.dataChangedFromNewOrder = true;
+                        this.Close();
+                    }));
+                    
+
+                }
             }
-            else
-            { 
-            
-            
+            catch (Exception ex)
+            {
+                MakeFormEnable(true);
+                ChangeResultText("There was an error while saving the order", Color.Red);
             }
+
+
+        }
+
+
+
+
+        private bool validateInputs()
+        {
+            if (txtOrderName.Text == "")
+            {
+                ChangeResultText("Please enter the Order Name", Color.Red);
+                return false;
+            }
+
+            if (txtTotalWeight.Text == "")
+            {
+                ChangeResultText("Please enter the Total Weight", Color.Red);
+                return false;
+            }
+
+            if (txtTotalWeight.Text.Trim() == "")
+            {
+                ChangeResultText("Please enter the Total Weight", Color.Red);
+                return false;
+            }
+
+
+            if (DropDownOrderStatus.SelectedIndex < 0)
+            {
+                ChangeResultText("Please select Order Status", Color.Red);
+                return false;
+            }
+
+
+
+            return true;
+
+        }
+
+        public void ChangeResultText(string strMsg, Color color)
+        {
+            lblResult.BeginInvoke((Action)(() => {
+                lblResult.Text = strMsg;
+                lblResult.ForeColor = color;
+            }));
+
+        }
+
+        public void MakeFormEnable(bool enableForm)
+        {
+            panelMainContainer.BeginInvoke((Action)(() => {
+                panelMainContainer.Enabled = enableForm;
+            }));
+
         }
     }
 }
