@@ -18,7 +18,7 @@ namespace HomeAssignment
         }
 
         public bool IsNew = false;
-        public PassedOrders passedOrder = null;
+        public PassedOrder passedOrder = null;
 
 
         private void FormNewOrder_Load(object sender, EventArgs e)
@@ -33,6 +33,7 @@ namespace HomeAssignment
                 GenerateData();
                 dataGridNewOrders.Visible = true;
                 panelMainContainer.Enabled = true;
+                LoadOrderData();
             }
         }
 
@@ -42,10 +43,10 @@ namespace HomeAssignment
             {
                 txtOrderId.Text = passedOrder.Id.ToString();
                 txtOrderName.Text = passedOrder.OrderName;
-                txtOrderStatus.Text = passedOrder.OrderStatus;
-                txtTotalWight.Text = passedOrder.TotalWight.ToString();
-                txtEstimatedSupplingDate.Text = passedOrder.EstimatedSupplingDate.ToString();
-                txtDateOfOrder.Text = passedOrder.DateOfOrder.ToString();
+                DropDownOrderStatus.SelectedItem = passedOrder.OrderStatus;
+                txtTotalWeight.Text = passedOrder.TotalWight.ToString();
+                dtEstDataOfSupply.Value = passedOrder.EstimatedSupplingDate;
+                dtDateOfOrder.Value = passedOrder.DateOfOrder;
 
             }
         
@@ -245,6 +246,19 @@ namespace HomeAssignment
 
 
 
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (IsNew)
+            {
+
+            }
+            else
+            { 
+            
+            
             }
         }
     }

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace HomeAssignment.Models
 {
-    public class PassedOrders
+    public class PassedOrder
     {
         
 

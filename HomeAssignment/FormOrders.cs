@@ -26,8 +26,8 @@ namespace HomeAssignment
         private void GenerateData() 
         {
 
-            List<PassedOrders> lstOrders = new List<PassedOrders>();
-            lstOrders.Add( new PassedOrders{ DateOfOrder = DateTime.Now, EstimatedSupplingDate = DateTime.Now.AddDays(2), OrderName = "First Order", OrderStatus = "In progress", TotalWight = 25 });
+            List<PassedOrder> lstOrders = new List<PassedOrder>();
+            lstOrders.Add( new PassedOrder{ DateOfOrder = DateTime.Now, EstimatedSupplingDate = DateTime.Now.AddDays(2), OrderName = "First Order", OrderStatus = "In progress", TotalWight = 25 });
 
             dataGridOrders.DataSource = lstOrders;
 
@@ -40,11 +40,18 @@ namespace HomeAssignment
 
         private void dataGridOrders_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var frmOrder = new FormNewOrder();
-            //this.Hide();
-            //frmOrder.Closed += (s, args) => this.Show();
-            frmOrder.IsNew = false;
-            frmOrder.ShowDialog();
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+
+                var data = (PassedOrder)dataGridOrders.Rows[e.RowIndex].DataBoundItem;
+
+
+                var frmOrder = new FormNewOrder();
+                frmOrder.passedOrder = data;
+                frmOrder.IsNew = false;
+                frmOrder.ShowDialog();
+            }
         }
 
         private void btnNewOrder_Click(object sender, EventArgs e)

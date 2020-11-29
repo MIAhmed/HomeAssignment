@@ -33,12 +33,12 @@ namespace HomeAssignment
             this.lblPDFFileName = new System.Windows.Forms.Label();
             this.btnUploadPDF = new System.Windows.Forms.Button();
             this.panelMainContainer = new System.Windows.Forms.Panel();
+            this.dtDateOfOrder = new System.Windows.Forms.DateTimePicker();
+            this.dtEstDataOfSupply = new System.Windows.Forms.DateTimePicker();
+            this.DropDownOrderStatus = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
-            this.txtDateOfOrder = new System.Windows.Forms.TextBox();
             this.txtOrderName = new System.Windows.Forms.TextBox();
-            this.txtEstimatedSupplingDate = new System.Windows.Forms.TextBox();
-            this.txtTotalWight = new System.Windows.Forms.TextBox();
-            this.txtOrderStatus = new System.Windows.Forms.TextBox();
+            this.txtTotalWeight = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@ namespace HomeAssignment
             // 
             this.dataGridNewOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridNewOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridNewOrders.Location = new System.Drawing.Point(0, 38);
+            this.dataGridNewOrders.Location = new System.Drawing.Point(0, 193);
             this.dataGridNewOrders.Name = "dataGridNewOrders";
             this.dataGridNewOrders.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dataGridNewOrders.RowTemplate.Height = 25;
@@ -74,7 +74,7 @@ namespace HomeAssignment
             // 
             // btnUploadPDF
             // 
-            this.btnUploadPDF.Location = new System.Drawing.Point(12, 9);
+            this.btnUploadPDF.Location = new System.Drawing.Point(9, 9);
             this.btnUploadPDF.Name = "btnUploadPDF";
             this.btnUploadPDF.Size = new System.Drawing.Size(89, 23);
             this.btnUploadPDF.TabIndex = 4;
@@ -84,12 +84,12 @@ namespace HomeAssignment
             // 
             // panelMainContainer
             // 
+            this.panelMainContainer.Controls.Add(this.dtDateOfOrder);
+            this.panelMainContainer.Controls.Add(this.dtEstDataOfSupply);
+            this.panelMainContainer.Controls.Add(this.DropDownOrderStatus);
             this.panelMainContainer.Controls.Add(this.btnSave);
-            this.panelMainContainer.Controls.Add(this.txtDateOfOrder);
             this.panelMainContainer.Controls.Add(this.txtOrderName);
-            this.panelMainContainer.Controls.Add(this.txtEstimatedSupplingDate);
-            this.panelMainContainer.Controls.Add(this.txtTotalWight);
-            this.panelMainContainer.Controls.Add(this.txtOrderStatus);
+            this.panelMainContainer.Controls.Add(this.txtTotalWeight);
             this.panelMainContainer.Controls.Add(this.label7);
             this.panelMainContainer.Controls.Add(this.label4);
             this.panelMainContainer.Controls.Add(this.label5);
@@ -97,67 +97,74 @@ namespace HomeAssignment
             this.panelMainContainer.Controls.Add(this.label3);
             this.panelMainContainer.Controls.Add(this.label2);
             this.panelMainContainer.Controls.Add(this.label1);
-            this.panelMainContainer.Location = new System.Drawing.Point(0, 302);
+            this.panelMainContainer.Location = new System.Drawing.Point(0, 35);
             this.panelMainContainer.Name = "panelMainContainer";
             this.panelMainContainer.Size = new System.Drawing.Size(791, 162);
             this.panelMainContainer.TabIndex = 7;
             // 
+            // dtDateOfOrder
+            // 
+            this.dtDateOfOrder.CustomFormat = "dd/MM/yyyy";
+            this.dtDateOfOrder.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtDateOfOrder.Location = new System.Drawing.Point(466, 86);
+            this.dtDateOfOrder.Name = "dtDateOfOrder";
+            this.dtDateOfOrder.RightToLeftLayout = true;
+            this.dtDateOfOrder.Size = new System.Drawing.Size(227, 23);
+            this.dtDateOfOrder.TabIndex = 12;
+            // 
+            // dtEstDataOfSupply
+            // 
+            this.dtEstDataOfSupply.CustomFormat = "dd/MM/yyyy";
+            this.dtEstDataOfSupply.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtEstDataOfSupply.Location = new System.Drawing.Point(12, 87);
+            this.dtEstDataOfSupply.Name = "dtEstDataOfSupply";
+            this.dtEstDataOfSupply.RightToLeftLayout = true;
+            this.dtEstDataOfSupply.Size = new System.Drawing.Size(226, 23);
+            this.dtEstDataOfSupply.TabIndex = 12;
+            // 
+            // DropDownOrderStatus
+            // 
+            this.DropDownOrderStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.DropDownOrderStatus.FormattingEnabled = true;
+            this.DropDownOrderStatus.Items.AddRange(new object[] {
+            "Received by factory",
+            "In progress",
+            "Ready for delivery",
+            "On the way",
+            "Received to site"});
+            this.DropDownOrderStatus.Location = new System.Drawing.Point(12, 17);
+            this.DropDownOrderStatus.Name = "DropDownOrderStatus";
+            this.DropDownOrderStatus.Size = new System.Drawing.Size(226, 23);
+            this.DropDownOrderStatus.TabIndex = 11;
+            // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnSave.Location = new System.Drawing.Point(608, 126);
+            this.btnSave.Location = new System.Drawing.Point(693, 126);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(85, 26);
+            this.btnSave.Size = new System.Drawing.Size(89, 23);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            // 
-            // txtDateOfOrder
-            // 
-            this.txtDateOfOrder.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtDateOfOrder.Location = new System.Drawing.Point(466, 86);
-            this.txtDateOfOrder.Name = "txtDateOfOrder";
-            this.txtDateOfOrder.PasswordChar = '*';
-            this.txtDateOfOrder.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDateOfOrder.Size = new System.Drawing.Size(227, 23);
-            this.txtDateOfOrder.TabIndex = 9;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtOrderName
             // 
             this.txtOrderName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtOrderName.Location = new System.Drawing.Point(466, 50);
             this.txtOrderName.Name = "txtOrderName";
-            this.txtOrderName.PasswordChar = '*';
             this.txtOrderName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtOrderName.Size = new System.Drawing.Size(227, 23);
             this.txtOrderName.TabIndex = 9;
             // 
-            // txtEstimatedSupplingDate
+            // txtTotalWeight
             // 
-            this.txtEstimatedSupplingDate.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtEstimatedSupplingDate.Location = new System.Drawing.Point(12, 87);
-            this.txtEstimatedSupplingDate.Name = "txtEstimatedSupplingDate";
-            this.txtEstimatedSupplingDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtEstimatedSupplingDate.Size = new System.Drawing.Size(226, 23);
-            this.txtEstimatedSupplingDate.TabIndex = 6;
-            // 
-            // txtTotalWight
-            // 
-            this.txtTotalWight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTotalWight.Location = new System.Drawing.Point(12, 52);
-            this.txtTotalWight.Name = "txtTotalWight";
-            this.txtTotalWight.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTotalWight.Size = new System.Drawing.Size(226, 23);
-            this.txtTotalWight.TabIndex = 6;
-            // 
-            // txtOrderStatus
-            // 
-            this.txtOrderStatus.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtOrderStatus.Location = new System.Drawing.Point(12, 17);
-            this.txtOrderStatus.Name = "txtOrderStatus";
-            this.txtOrderStatus.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtOrderStatus.Size = new System.Drawing.Size(226, 23);
-            this.txtOrderStatus.TabIndex = 6;
+            this.txtTotalWeight.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtTotalWeight.Location = new System.Drawing.Point(12, 52);
+            this.txtTotalWeight.Name = "txtTotalWeight";
+            this.txtTotalWeight.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtTotalWeight.Size = new System.Drawing.Size(226, 23);
+            this.txtTotalWeight.TabIndex = 6;
             // 
             // label7
             // 
@@ -287,19 +294,19 @@ namespace HomeAssignment
         private System.Windows.Forms.Button btnUploadPDF;
         private System.Windows.Forms.Panel panelMainContainer;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtDateOfOrder;
         private System.Windows.Forms.TextBox txtOrderName;
-        private System.Windows.Forms.TextBox txtOrderStatus;
+        private System.Windows.Forms.TextBox txtTotalWeight;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtOrderId;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtEstimatedSupplingDate;
-        private System.Windows.Forms.TextBox txtTotalWight;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox DropDownOrderStatus;
+        private System.Windows.Forms.DateTimePicker dtEstDataOfSupply;
+        private System.Windows.Forms.DateTimePicker dtDateOfOrder;
     }
 }
