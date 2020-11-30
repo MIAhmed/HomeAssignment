@@ -63,6 +63,7 @@ namespace HomeAssignment
             this.dataGridNewOrders.RowTemplate.Height = 25;
             this.dataGridNewOrders.Size = new System.Drawing.Size(791, 265);
             this.dataGridNewOrders.TabIndex = 0;
+            this.dataGridNewOrders.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridNewOrders_CellClick);
             this.dataGridNewOrders.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridNewOrders_CellPainting);
             // 
             // lblPDFFileName

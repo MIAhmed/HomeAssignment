@@ -23,7 +23,8 @@ namespace HomeAssignment
         public Order passedOrder = null;
         public FormOrders FrmOrder = null;
 
-        
+        List<NewOrderVM> lstData = new List<NewOrderVM>();
+
 
         private void FormNewOrder_Load(object sender, EventArgs e)
         {
@@ -37,10 +38,11 @@ namespace HomeAssignment
             }
             else
             {
-                GenerateData();
+                
                 dataGridNewOrders.Visible = true;
                 MakeFormEnable(true);
                 LoadOrderExistingData();
+                GenerateData();
             }
         }
 
@@ -65,76 +67,89 @@ namespace HomeAssignment
 
         private void GenerateData()
         {
-            List<NewOrderVM> lstData = new List<NewOrderVM>();
+
             //lstData = new List<NewOrderVM>();
+            if (lstData.Count == 0)
+            {
+
+                NewOrderVM row = new NewOrderVM();
+
+                row.Amount = 10;
+                row.Diameter = 2;
+                row.RawNumber = 1;
+                //row.Weight = 65;
+
+                var sketch = new NewOrderSketchVM();
+                sketch.Lines = new List<NewOrderSketchLineVM>();
+
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 10));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 10));
+
+                row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
 
 
-            NewOrderVM row = new NewOrderVM();
+                row.Sketch = sketch;
 
-            row.Amount = 10;
-            row.Diameter = 2;
-            row.RawNumber = 1;
-            row.Weight = 65;
+                lstData.Add(row);
 
-            var sketch = new NewOrderSketchVM();
-            sketch.Lines = new List<NewOrderSketchLineVM>();
+                row = new NewOrderVM();
 
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 10));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 10));
-
-            row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
+                row.Amount = 11;
+                row.Diameter = 3;
+                row.RawNumber = 1;
+                //row.Weight = 20;
 
 
-            row.Sketch = sketch;
+                sketch = new NewOrderSketchVM();
+                sketch.Lines = new List<NewOrderSketchLineVM>();
+
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 12));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 12));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
+                row.Sketch = sketch;
+
+                row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
+
+
+                lstData.Add(row);
+
+                row = new NewOrderVM();
+
+                row.Amount = 9;
+                row.Diameter = 3;
+                row.RawNumber = 1;
+                //row.Weight = 85;
+
+                sketch = new NewOrderSketchVM();
+                sketch.Lines = new List<NewOrderSketchLineVM>();
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 12));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 20));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
+                sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
+
+                row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
+
+                row.Sketch = sketch;
+
+
+                lstData.Add(row);
+
+            }
+            else
+            {
+                foreach (var row in lstData)
+                {
+                    row.TotalLength = CalculatLengthForEachLine(row.Sketch.Lines);
+
+
+                }
+                CalculatWeigthForEachRow(lstData);
+            }
+
             
-            lstData.Add(row);
-
-            row= new NewOrderVM();
-
-            row.Amount = 11;
-            row.Diameter = 3;
-            row.RawNumber = 1;
-            row.Weight = 20;
-            
-
-            sketch = new NewOrderSketchVM();
-            sketch.Lines = new List<NewOrderSketchLineVM>();
-
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 12));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 12));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
-            row.Sketch = sketch;
-
-            row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
-            
-
-            lstData.Add(row);
-
-            row = new NewOrderVM();
-
-            row.Amount = 9;
-            row.Diameter = 3;
-            row.RawNumber = 1;
-            row.Weight = 85;
-
-            sketch = new NewOrderSketchVM();
-            sketch.Lines = new List<NewOrderSketchLineVM>();
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 12));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 20));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
-
-            row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
-
-            row.Sketch = sketch;
-
-
-            lstData.Add(row);
-            CalculatWeigthForEachRow(lstData);
-
             dataGridNewOrders.DataSource = lstData;
 
             dataGridNewOrders.Columns[5].DefaultCellStyle.Format = "0.0000##";
@@ -169,6 +184,8 @@ namespace HomeAssignment
                 row.Weight = ((Math.Pow((row.Diameter / 1000), 2) * 1000 * Math.PI * 1.96) * (row.TotalLength / 100) * row.Amount);
             
             }
+
+            txtTotalWeight.Text = data.Select(x => x.Weight).Sum().ToString();
         }
 
 
@@ -435,6 +452,29 @@ namespace HomeAssignment
                 panelMainContainer.Enabled = enableForm;
             }));
 
+        }
+
+        private void dataGridNewOrders_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                var data = (NewOrderVM)dataGridNewOrders.Rows[e.RowIndex].DataBoundItem;
+
+                var frm = new FormEditDimunsion();
+                frm.ordrVM = data;
+                DialogResult res = frm.ShowDialog();
+
+                if (res == DialogResult.Yes)
+                {
+                    GenerateData();
+                
+                }
+                //if (dataChangedFromNewOrder)
+                //{
+                //    GenerateData();
+                //}
+
+            }
         }
     }
 }
