@@ -29,6 +29,7 @@ namespace HomeAssignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Signup));
             this.panelMainContainer = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSignup = new System.Windows.Forms.Button();
@@ -282,13 +283,14 @@ namespace HomeAssignment
             this.Controls.Add(this.panelMainContainer);
             this.Controls.Add(this.lblResults);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Signup";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Signup";
+            this.Text = "Create Account";
             this.Load += new System.EventHandler(this.Signup_Load);
             this.panelMainContainer.ResumeLayout(false);
             this.panelMainContainer.PerformLayout();
