@@ -147,10 +147,10 @@ namespace HomeAssignment
 
 
                 }
-                CalculatWeigthForEachRow(lstData);
+               
             }
+            CalculatWeigthForEachRow(lstData);
 
-            
             dataGridNewOrders.DataSource = lstData;
 
             dataGridNewOrders.Columns[5].DefaultCellStyle.Format = "0.0000##";
