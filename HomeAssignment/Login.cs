@@ -84,7 +84,7 @@ namespace HomeAssignment
                             MakeFormEnable(true);
                         }
                         else {
-                            ShowMainForm();
+                            ShowMainForm(user);
                         }
                         
 
@@ -121,11 +121,12 @@ namespace HomeAssignment
 
         }
 
-        public void ShowMainForm()
+        public void ShowMainForm(AppUser user)
         {
             this.BeginInvoke((Action)(() => {
                 var frmOrder = new FormOrders();
                 this.Hide();
+                frmOrder.passedUser = user;
                 frmOrder.Closed += (s, args) => this.Close();
                 frmOrder.Show();
             }));

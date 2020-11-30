@@ -18,8 +18,16 @@ namespace HomeAssignment
             InitializeComponent();
         }
 
+        public AppUser passedUser = null;
+
         private void FormOrders_Load(object sender, EventArgs e)
         {
+            if (passedUser != null)
+            {
+                this.Text = passedUser.Username + " : User | " + passedUser.Site + " : Site | " + passedUser.CompanyName + " : Company | Passed Orders";
+            }
+
+
             GenerateData();
         }
 
