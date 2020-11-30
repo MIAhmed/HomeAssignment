@@ -81,6 +81,7 @@ namespace HomeAssignment
             this.Controls.Add(this.btnNewOrder);
             this.Controls.Add(this.dataGridOrders);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormOrders";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

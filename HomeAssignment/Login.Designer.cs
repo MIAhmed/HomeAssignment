@@ -29,6 +29,7 @@ namespace HomeAssignment
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.lblResults = new System.Windows.Forms.Label();
             this.panelMainContainer = new System.Windows.Forms.Panel();
             this.lnklblForgotPassword = new System.Windows.Forms.LinkLabel();
@@ -166,6 +167,7 @@ namespace HomeAssignment
             this.Controls.Add(this.lblResults);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
