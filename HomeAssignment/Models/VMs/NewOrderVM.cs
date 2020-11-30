@@ -17,7 +17,7 @@ namespace HomeAssignment.Models.VMs
         [DisplayName("Total Length")]
         public float TotalLength { get; set; }
         public NewOrderSketchVM Sketch { get; set; }
-        public float Weight { get; set; }
+        public double Weight { get; set; }
     }
 
 

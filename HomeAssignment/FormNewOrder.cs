@@ -23,6 +23,8 @@ namespace HomeAssignment
         public Order passedOrder = null;
         public FormOrders FrmOrder = null;
 
+        
+
         private void FormNewOrder_Load(object sender, EventArgs e)
         {
 
@@ -63,7 +65,8 @@ namespace HomeAssignment
 
         private void GenerateData()
         {
-            var lstData = new List<NewOrderVM>();
+            List<NewOrderVM> lstData = new List<NewOrderVM>();
+            //lstData = new List<NewOrderVM>();
 
 
             NewOrderVM row = new NewOrderVM();
@@ -71,7 +74,6 @@ namespace HomeAssignment
             row.Amount = 10;
             row.Diameter = 2;
             row.RawNumber = 1;
-            row.TotalLength = 25;
             row.Weight = 65;
 
             var sketch = new NewOrderSketchVM();
@@ -82,6 +84,7 @@ namespace HomeAssignment
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 10));
 
+            row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
 
 
             row.Sketch = sketch;
@@ -93,8 +96,8 @@ namespace HomeAssignment
             row.Amount = 11;
             row.Diameter = 3;
             row.RawNumber = 1;
-            row.TotalLength = 20;
-            row.Weight = 75;
+            row.Weight = 20;
+            
 
             sketch = new NewOrderSketchVM();
             sketch.Lines = new List<NewOrderSketchLineVM>();
@@ -103,8 +106,10 @@ namespace HomeAssignment
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 12));
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
-
             row.Sketch = sketch;
+
+            row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
+            
 
             lstData.Add(row);
 
@@ -113,7 +118,6 @@ namespace HomeAssignment
             row.Amount = 9;
             row.Diameter = 3;
             row.RawNumber = 1;
-            row.TotalLength = 30;
             row.Weight = 85;
 
             sketch = new NewOrderSketchVM();
@@ -123,15 +127,50 @@ namespace HomeAssignment
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
             sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
 
+            row.TotalLength = CalculatLengthForEachLine(sketch.Lines);
+
             row.Sketch = sketch;
 
 
             lstData.Add(row);
+            CalculatWeigthForEachRow(lstData);
 
             dataGridNewOrders.DataSource = lstData;
 
+            dataGridNewOrders.Columns[5].DefaultCellStyle.Format = "0.0000##";
+
 
         }
+
+
+
+        private float CalculatLengthForEachLine(List<NewOrderSketchLineVM> lstLines)
+        {
+            float totalLenght = 0;
+
+            for (int i =0; i < lstLines.Count;  i++)
+            {
+                if (i > 0 && lstLines[i].Diminution < 1)
+                {
+                    lstLines[i].Diminution = Math.Abs((lstLines[i - 1].LengthX - lstLines[i].LengthX) + (lstLines[i - 1].LengthY - lstLines[i].LengthY));
+                }
+
+                totalLenght += lstLines[i].Diminution;
+            }
+            return totalLenght;
+
+        }
+
+        private void CalculatWeigthForEachRow(List<NewOrderVM> data)
+        {
+           
+            foreach (var row in data)
+            {
+                row.Weight = ((Math.Pow((row.Diameter / 1000), 2) * 1000 * Math.PI * 1.96) * (row.TotalLength / 100) * row.Amount);
+            
+            }
+        }
+
 
         private void dataGridNewOrders_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
@@ -199,12 +238,12 @@ namespace HomeAssignment
                                         }
                                         else
                                         {
-                                            sDrawX = currentX - 6;
+                                            sDrawX = currentX + 2;
                                             sDrawY = currentY  - 6;
 
                                         }
 
-                                        sLenght = Math.Abs((tempNextX - currentX) + (tempNextY - currentY));
+                                        sLenght = line.Diminution;// Math.Abs((tempNextX - currentX) + (tempNextY - currentY));
 
                                         e.Graphics.DrawString(sLenght.ToString() , new Font(FontFamily.GenericSansSerif, 7), Brushes.BlueViolet, sDrawX, sDrawY, StringFormat.GenericDefault);
 
