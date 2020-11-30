@@ -47,6 +47,7 @@ namespace HomeAssignment
             this.dataGridDimunsions.Size = new System.Drawing.Size(253, 196);
             this.dataGridDimunsions.TabIndex = 2;
             this.dataGridDimunsions.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridDimunsions_CellContentClick);
+            this.dataGridDimunsions.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dataGridDimunsions_CellValidating);
             // 
             // btnSave
             // 

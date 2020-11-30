@@ -37,8 +37,28 @@ namespace HomeAssignment
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            dataGridDimunsions.EndEdit();
+
             this.DialogResult = DialogResult.Yes;
             this.Close();
+        }
+
+        private void dataGridDimunsions_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.ColumnIndex == 2) 
+            {
+                float retVal;
+
+                if (!float.TryParse(Convert.ToString(e.FormattedValue), out retVal))
+                {
+                    e.Cancel = true;
+                    MessageBox.Show("Please enter numeric value");
+                }
+                else
+                {
+                    // the input is numeric 
+                }
+            }
         }
     }
 }

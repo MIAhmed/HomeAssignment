@@ -69,6 +69,7 @@ namespace HomeAssignment
         {
 
             //lstData = new List<NewOrderVM>();
+            dataGridNewOrders.DataSource = null;
             if (lstData.Count == 0)
             {
 
@@ -286,6 +287,7 @@ namespace HomeAssignment
 
         private void btnUploadPDF_Click(object sender, EventArgs e)
         {
+            
             using (OpenFileDialog dlg = new OpenFileDialog())
             {
 
