@@ -25,6 +25,8 @@ namespace HomeAssignment
 
         private void FormNewOrder_Load(object sender, EventArgs e)
         {
+
+            dataGridNewOrders.RowTemplate.Height = 50;
             if (IsNew)
             {
                 dataGridNewOrders.Visible = false;
@@ -75,10 +77,12 @@ namespace HomeAssignment
             var sketch = new NewOrderSketchVM();
             sketch.Lines = new List<NewOrderSketchLineVM>();
 
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 2));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 16));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(38, 16));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 5));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 10));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 10));
+
+
 
             row.Sketch = sketch;
             
@@ -95,10 +99,10 @@ namespace HomeAssignment
             sketch = new NewOrderSketchVM();
             sketch.Lines = new List<NewOrderSketchLineVM>();
 
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 2));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 2));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 16));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 16));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 12));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 12));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
 
             row.Sketch = sketch;
 
@@ -114,10 +118,10 @@ namespace HomeAssignment
 
             sketch = new NewOrderSketchVM();
             sketch.Lines = new List<NewOrderSketchLineVM>();
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 2));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 10));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(16, 16));
-            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(48, 16));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 12));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 20));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(36, 36));
+            sketch.Lines.Add(new NewOrderSketchLineVM().SeLine(78, 36));
 
             row.Sketch = sketch;
 
@@ -185,24 +189,24 @@ namespace HomeAssignment
 
                                         if (currentX == tempNextX)
                                         {
-                                            sDrawX = currentX - 2;
-                                            sDrawY = ((currentY + tempNextY) / 2) - 4;
+                                            sDrawX = currentX - 14;
+                                            sDrawY = ((currentY + tempNextY) / 2) - 6;
                                         }
                                         else if (currentY == tempNextY)
                                         {
-                                            sDrawX = currentX - 2;
-                                            sDrawY = ((currentY + tempNextY) / 2) -4;
+                                            sDrawX = ((currentX + tempNextX) / 2) - 6;
+                                            sDrawY = currentY - 13;  
                                         }
                                         else
                                         {
-                                            sDrawX = currentX - 4;
-                                            sDrawY = currentY  - 4;
+                                            sDrawX = currentX - 6;
+                                            sDrawY = currentY  - 6;
 
                                         }
 
                                         sLenght = Math.Abs((tempNextX - currentX) + (tempNextY - currentY));
 
-                                        e.Graphics.DrawString(sLenght.ToString() , new Font(FontFamily.GenericSansSerif, 5), Brushes.Crimson, sDrawX, sDrawY, StringFormat.GenericDefault);
+                                        e.Graphics.DrawString(sLenght.ToString() , new Font(FontFamily.GenericSansSerif, 7), Brushes.BlueViolet, sDrawX, sDrawY, StringFormat.GenericDefault);
 
 
                                         currentX = tempNextX;
